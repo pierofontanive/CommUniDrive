@@ -1,5 +1,18 @@
 <resources>
-    <string name="app_name">CommUniDrive</string>
+    <string name="app_name" translatable="false">CommUniDrive</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="nav_header_logo">Immagine del profilo dell\'utente</string>
+    <string name="nav_header_username">Nome Utente</string>
+    <string name="nav_header_gotoprofile">Vai al profilo</string>
+
+    <string name="drawer_logout">ESCI</string>
+    <string name="home">Home</string>
+    <string name="carica_appunti">Carica Appunti</string>
+    <string name="cronologia">Cronologia</string>
+    <string name="lingua">Lingua</string>
+    <string name="effettua_ricerca">Effettua ricerca</string>
+    <string name="filtri">FILTRI</string>
+    <string name="risultati_trovati">Risultati trovati</string>
 </resources>

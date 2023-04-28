@@ -1,33 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_1"
-            android:icon="@drawable/baseline_description_24"
-            android:title="Pag1" />
+            android:id="@+id/nav_home"
+            android:icon="@drawable/baseline_home_24"
+            android:title="@string/home" />
         <item
-            android:id="@+id/nav_2"
-            android:icon="@drawable/baseline_description_24"
-            android:title="Pag2" />
+            android:id="@+id/nav_upload"
+            android:icon="@drawable/baseline_upload_24"
+            android:title="@string/carica_appunti" />
         <item
-            android:id="@+id/nav_3"
-            android:icon="@drawable/baseline_description_24"
-            android:title="Pag3" />
+            android:id="@+id/nav_history"
+            android:icon="@drawable/baseline_history_24"
+            android:title="@string/cronologia" />
     </group>
-
-    <item android:title="Communicate">
-        <menu>
-            <item
-                android:id="@+id/nav_4"
-                android:icon="@drawable/baseline_description_24"
-                android:title="Pag4" />
-            <item
-                android:id="@+id/nav_5"
-                android:icon="@drawable/baseline_description_24"
-                android:title="Pag5" />
-        </menu>
-    </item>
-
 </menu>
