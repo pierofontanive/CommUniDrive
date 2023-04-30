@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="courses_array">
+        <item> </item>
+        <item>Analisi matematica 1 (o Analisi 1)</item>
+        <item>Analisi 2</item>
+        <item>Geometria e algebra lineare</item>
+        <item>Programmazione 1</item>
+        <item>Calcolatori</item>
+        <item>Fondamenti matematici per l\'informatica</item>
+        <item>Probabilità e statistica (o Calcolo delle Probabilità)</item>
+        <item>Programmazione 2</item>
+        <item>Programmazione Funzionale</item>
+        <item>Algoritmi e strutture dati</item>
+        <item>Ingegneria del software</item>
+        <item>Basi di dati</item>
+        <item>Reti</item>
+        <item>Sistemi operativi</item>
+        <item>Introduzione alla programmazione per il web</item>
+        <item>Human Computer Interaction</item>
+        <item>Reti logiche</item>
+        <item>Circuiti Elettronici Digitali</item>
+        <item>Fondamenti di elaborazione dei segnali</item>
+        <item>Introduction to Computer and Network Security</item>
+        <item>Sistemi informativi</item>
+        <item>Programmazione avanzata</item>
+        <item>Fondamenti di robotica</item>
+        <item>Laboratorio di programmazione per sistemi mobili e tablet</item>
+        <item>Logica computazionale</item>
+        <item>Fisica</item>
+        <item>Linguaggi formali e compilatori</item>
+        <item>Introduction to machine learning</item>
+        <item>Inglese B1</item>
+        <item>Inglese B2</item>
+        <item>Organizzazione e Gestione Aziendale</item>
+        <item>Fisica 2</item>
+        <item>Embedded Software for the Internet of Things</item>
+        <item>Fog and cloud computing</item>
+        <item>Campi elettromagnetici</item>
+        <item>Softwarized and virtualized mobile networks</item>
+        <item>Trasmissione di Segnali Digitali</item>
+        <item>Fondamenti di elaborazione dei segnali 2</item>
+        <item>Vision and recognition</item>
+        <item>Tecnologie Multimediali</item>
+        <item>Next generation networks</item>
+        <item>Digital signal coding</item>
+        <item>Remote Sensing and Radar</item>
+        <item>Analog electronics</item>
+        <item>Progettazione e prototipazione di sistemi elettronici</item>
+        <item>Advanced logic design</item>
+        <item>Laboratorio di systems on chip</item>
+        <item>Circuiti ad Alta Frequenza per Systems on Chip</item>
+        <item>Embedded Systems</item>
+        <item>Strumentazione ed elettronica industriale</item>
+    </string-array>
+</resources>

@@ -59,15 +59,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     @Override public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.nav_home:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new Fragment_Home()).commit();
-                break;
-            case R.id.nav_upload:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new Fragment_2()).commit();
-                break;
-            case R.id.nav_history:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new Fragment_3()).commit();
-                break;
+            case R.id.nav_home: getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new Fragment_Home()).commit(); break;
+            case R.id.nav_upload: getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new Fragment_2()).commit(); break;
+            case R.id.nav_history: getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new Fragment_3()).commit(); break;
         }
 
         drawer.closeDrawer(GravityCompat.START);
@@ -77,11 +71,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     // onBackPressed behaviour
     @Override public void onBackPressed() {
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
-            drawer.closeDrawer(GravityCompat.START);
-        } else {
-            super.onBackPressed();
-        }
+        if (drawer.isDrawerOpen(GravityCompat.START)) { drawer.closeDrawer(GravityCompat.START); }
+        else { super.onBackPressed(); }
     }
 
     // Implemented methods by AdapterView.OnItemSelectedListener

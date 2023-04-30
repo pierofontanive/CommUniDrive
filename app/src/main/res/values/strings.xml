@@ -15,4 +15,12 @@
     <string name="effettua_ricerca">Effettua ricerca</string>
     <string name="filtri">FILTRI</string>
     <string name="risultati_trovati">Risultati trovati</string>
+    <string name="filtro">Filtro</string>
+    <string name="universita">Università: </string>
+    <string name="dipartimento">Dipartimento: </string>
+    <string name="a_a">A.a. :</string>
+    <string name="professore">Professore:</string>
+    <string name="lingua2">Lingua:</string>
+    <string name="applica_filtri_e_cerca">Applica Filtri e Cerca</string>
+    <string name="resetta_i_filtri">Resetta i filtri</string>
 </resources>

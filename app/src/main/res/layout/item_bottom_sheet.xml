@@ -4,14 +4,15 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/item_bottom_sheet_background">
+    android:background="@drawable/item_bottom_sheet_background"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:padding="15dp"
-        android:text="Test"
+        android:text="@string/filtro"
         android:textSize="18sp"
         android:textStyle="bold"/>
     
@@ -20,48 +21,208 @@
         android:layout_height="1dp"
         android:layout_marginBottom="10dp"/>
 
+    <!-- Università Spinner Layout -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="@string/universita"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginStart="10dp"/>
+
+        <Spinner
+            android:id="@+id/uni_spinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:layout_marginEnd="10dp"/>
+
+    </LinearLayout>
+
+    <!-- Dipartimento Spinner Layout -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="@string/dipartimento"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginStart="10dp"/>
+
+        <Spinner
+            android:id="@+id/dep_spinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:layout_marginEnd="10dp"/>
+
+    </LinearLayout>
+
+    <!-- Corso Spinner Layout -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="Corso: "
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginStart="10dp"/>
+
+        <Spinner
+            android:id="@+id/courses_spinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:layout_marginEnd="10dp"/>
+
+    </LinearLayout>
+
+    <!-- Anno Accademico Spinner Layout -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="@string/a_a"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginStart="10dp"/>
+
+        <Spinner
+            android:id="@+id/aa_spinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:layout_marginEnd="10dp"/>
+
+    </LinearLayout>
+
+    <!-- Tipologia materiale Spinner Layout -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="Tipologia: "
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginStart="10dp"/>
+
+        <Spinner
+            android:id="@+id/type_spinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:layout_marginEnd="10dp"/>
+
+    </LinearLayout>
+
+    <!-- Lingua Spinner Layout -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="@string/lingua2"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginStart="10dp"/>
+
+        <Spinner
+            android:id="@+id/language_spinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:layout_marginEnd="10dp"/>
+
+    </LinearLayout>
+
+    <!-- Professore Spinner Layout -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="@string/professore"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginStart="10dp"/>
+
+        <Spinner
+            android:id="@+id/prof_spinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:layout_marginEnd="10dp"/>
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginBottom="10dp"/>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="5dp">
-        
-        <ImageView
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_margin="10dp"
-            android:scaleType="center"
-            android:src="@drawable/ic_launcher_background"/>
+        android:orientation="horizontal">
 
-        <LinearLayout
+        <Button
+            android:id="@+id/filter_reset"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:text="@string/resetta_i_filtri"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <Button
+            android:id="@+id/applica_filtri_e_cerca"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginEnd="10dp"
-            android:gravity="center_vertical"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Test"
-                android:textSize="17sp"
-                android:textStyle="bold"/>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Test2"
-                android:textSize="15sp"/>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Test2"
-                android:textColor="@color/teal_200"
-                android:textSize="16sp"
-                android:textStyle="bold"/>
-
-        </LinearLayout>
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:text="@string/applica_filtri_e_cerca"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/filter_reset" />
 
     </LinearLayout>
 

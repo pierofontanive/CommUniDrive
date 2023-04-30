@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="departments_array">
+        <item> </item>
+        <item>Biologia Cellulare, Computazionale e Integrata, CIBIO</item>
+        <item>Economia e Management</item>
+        <item>Facoltà di Giurisprudenza</item>
+        <item>Fisica</item>
+        <item>Ingegneria Civile, Ambientale e Meccanica</item>
+        <item>Ingegneria e Scienza dell’Informazione</item>
+        <item>Ingegneria Industriale</item>
+        <item>Lettere e Filosofia</item>
+        <item>Matematica</item>
+        <item>Psicologia e Scienze Cognitive</item>
+        <item>Sociologia e ricerca Sociale</item>
+    </string-array>
+</resources>
