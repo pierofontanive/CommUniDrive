@@ -2,6 +2,7 @@ package com.example.communidrive;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -25,6 +26,7 @@ public class Fragment_Home extends Fragment implements AdapterView.OnItemSelecte
     private Button filterButton, applyfilterButton, resetfilterButton;
     private Context main_context = getContext();
     private Spinner uni_spinner, dep_spinner, courses_spinner, academic_year_spinner, types_spinner, lang_spinner, prof_spinner;
+    private int uni_value, dep_value, courses_value, ay_value, type_value, lang_value, prof_value;
 
     @Override public void onAttach(@NonNull Context context) { super.onAttach(context); main_context = context; }
     @Override public void onDetach() { super.onDetach(); main_context = null; }
@@ -83,10 +85,26 @@ public class Fragment_Home extends Fragment implements AdapterView.OnItemSelecte
                 prof_spinner.setAdapter(prof_spinner_adapter);
                 prof_spinner.setOnItemSelectedListener(Fragment_Home.this);
 
+                // Assegno i valori salvati ai vari spinner, così rimangono memorizzati
+                uni_spinner.setSelection(uni_value);
+                dep_spinner.setSelection(dep_value);
+                courses_spinner.setSelection(courses_value);
+                academic_year_spinner.setSelection(ay_value);
+                types_spinner.setSelection(type_value);
+                lang_spinner.setSelection(lang_value);
+                prof_spinner.setSelection(prof_value);
+
                 // Applica filtri e cerca Button
                 applyfilterButton = (Button) bottomSheetView.findViewById(R.id.applica_filtri_e_cerca);
                 applyfilterButton.setOnClickListener(new View.OnClickListener() {
                     @Override public void onClick(View view) {
+                        uni_value = uni_spinner.getSelectedItemPosition();
+                        dep_value = dep_spinner.getSelectedItemPosition();
+                        courses_value = courses_spinner.getSelectedItemPosition();
+                        ay_value = academic_year_spinner.getSelectedItemPosition();
+                        type_value = types_spinner.getSelectedItemPosition();
+                        lang_value = lang_spinner.getSelectedItemPosition();
+                        prof_value = prof_spinner.getSelectedItemPosition();
                         bottomSheetDialog.dismiss();
                     }
                 });
@@ -112,6 +130,11 @@ public class Fragment_Home extends Fragment implements AdapterView.OnItemSelecte
     }
 
     // Implemented methods by AdapterView.OnItemSelectedListener
-    @Override public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) { adapterView.getItemAtPosition(i); }
+    @Override public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+
+        // Remember user choice
+        int userChoice = uni_spinner.getSelectedItemPosition();
+        adapterView.getItemAtPosition(i);
+    }
     @Override public void onNothingSelected(AdapterView<?> adapterView) { }
 }
