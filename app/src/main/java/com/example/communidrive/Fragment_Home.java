@@ -130,11 +130,6 @@ public class Fragment_Home extends Fragment implements AdapterView.OnItemSelecte
     }
 
     // Implemented methods by AdapterView.OnItemSelectedListener
-    @Override public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-
-        // Remember user choice
-        int userChoice = uni_spinner.getSelectedItemPosition();
-        adapterView.getItemAtPosition(i);
-    }
+    @Override public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) { adapterView.getItemAtPosition(i); }
     @Override public void onNothingSelected(AdapterView<?> adapterView) { }
 }
