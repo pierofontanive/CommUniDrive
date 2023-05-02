@@ -11,7 +11,6 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.Button;
 import android.widget.Spinner;
 
 import com.google.android.material.navigation.NavigationView;
@@ -60,7 +59,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @Override public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
             case R.id.nav_home: getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new Fragment_Home()).commit(); break;
-            case R.id.nav_upload: getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new Fragment_2()).commit(); break;
+            case R.id.nav_upload: getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new Fragment_Upload()).commit(); break;
             case R.id.nav_history: getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new Fragment_3()).commit(); break;
         }
 

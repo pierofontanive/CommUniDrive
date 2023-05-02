@@ -21,209 +21,225 @@
         android:layout_height="1dp"
         android:layout_marginBottom="10dp"/>
 
-    <!-- Università Spinner Layout -->
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:orientation="horizontal">
+        android:layout_height="wrap_content">
 
-        <TextView
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:text="@string/universita"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:layout_marginStart="10dp"/>
+            android:orientation="vertical">
 
-        <Spinner
-            android:id="@+id/uni_spinner"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="end"
-            android:layout_marginEnd="10dp"/>
+            <!-- Università Spinner Layout -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:orientation="horizontal">
 
-    </LinearLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="@string/universita"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:layout_marginStart="10dp"/>
 
-    <!-- Dipartimento Spinner Layout -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:orientation="horizontal">
+                <androidx.appcompat.widget.AppCompatSpinner
+                    android:id="@+id/uni_spinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="end"
+                    android:layout_marginEnd="10dp"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:text="@string/dipartimento"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:layout_marginStart="10dp"/>
+            </LinearLayout>
 
-        <Spinner
-            android:id="@+id/dep_spinner"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="end"
-            android:layout_marginEnd="10dp"/>
+            <!-- Dipartimento Spinner Layout -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:orientation="horizontal">
 
-    </LinearLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="@string/dipartimento"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:layout_marginStart="10dp"/>
 
-    <!-- Corso Spinner Layout -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:orientation="horizontal">
+                <androidx.appcompat.widget.AppCompatSpinner
+                    android:id="@+id/dep_spinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="end"
+                    android:layout_marginEnd="10dp"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:text="Corso: "
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:layout_marginStart="10dp"/>
+            </LinearLayout>
 
-        <Spinner
-            android:id="@+id/courses_spinner"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="end"
-            android:layout_marginEnd="10dp"/>
+            <!-- Corso Spinner Layout -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:orientation="horizontal">
 
-    </LinearLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="@string/corso"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:layout_marginStart="10dp"/>
 
-    <!-- Anno Accademico Spinner Layout -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:orientation="horizontal">
+                <androidx.appcompat.widget.AppCompatSpinner
+                    android:id="@+id/courses_spinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="end"
+                    android:layout_marginEnd="10dp"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:text="@string/a_a"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:layout_marginStart="10dp"/>
+            </LinearLayout>
 
-        <Spinner
-            android:id="@+id/aa_spinner"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="end"
-            android:layout_marginEnd="10dp"/>
+            <!-- Anno Accademico Spinner Layout -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:orientation="horizontal">
 
-    </LinearLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="@string/a_a"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:layout_marginStart="10dp"/>
 
-    <!-- Tipologia materiale Spinner Layout -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:orientation="horizontal">
+                <androidx.appcompat.widget.AppCompatSpinner
+                    android:id="@+id/aa_spinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="end"
+                    android:layout_marginEnd="10dp"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:text="Tipologia: "
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:layout_marginStart="10dp"/>
+            </LinearLayout>
 
-        <Spinner
-            android:id="@+id/type_spinner"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="end"
-            android:layout_marginEnd="10dp"/>
+            <!-- Tipologia materiale Spinner Layout -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:orientation="horizontal">
 
-    </LinearLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="@string/tipologia"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:layout_marginStart="10dp"/>
 
-    <!-- Lingua Spinner Layout -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:orientation="horizontal">
+                <androidx.appcompat.widget.AppCompatSpinner
+                    android:id="@+id/type_spinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="end"
+                    android:layout_marginEnd="10dp"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:text="@string/lingua2"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:layout_marginStart="10dp"/>
+            </LinearLayout>
 
-        <Spinner
-            android:id="@+id/language_spinner"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="end"
-            android:layout_marginEnd="10dp"/>
+            <!-- Lingua Spinner Layout -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:orientation="horizontal">
 
-    </LinearLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="@string/lingua2"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:layout_marginStart="10dp"/>
 
-    <!-- Professore Spinner Layout -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:orientation="horizontal">
+                <androidx.appcompat.widget.AppCompatSpinner
+                    android:id="@+id/language_spinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="end"
+                    android:layout_marginEnd="10dp"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:text="@string/professore"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:layout_marginStart="10dp"/>
+            </LinearLayout>
 
-        <Spinner
-            android:id="@+id/prof_spinner"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="end"
-            android:layout_marginEnd="10dp"/>
+            <!-- Professore Spinner Layout -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:orientation="horizontal">
 
-    </LinearLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="@string/professore"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:layout_marginStart="10dp"/>
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginBottom="10dp"/>
+                <androidx.appcompat.widget.AppCompatSpinner
+                    android:id="@+id/prof_spinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="end"
+                    android:layout_marginEnd="10dp"/>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+            </LinearLayout>
 
-        <Button
-            android:id="@+id/filter_reset"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="16dp"
-            android:text="@string/resetta_i_filtri"
-            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"/>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginBottom="10dp"/>
 
-        <Button
-            android:id="@+id/applica_filtri_e_cerca"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="16dp"
-            android:text="@string/applica_filtri_e_cerca"
-            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@id/filter_reset" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
 
-    </LinearLayout>
+                <Button
+                    android:id="@+id/filter_reset"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:text="@string/resetta_i_filtri"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    style="?android:attr/buttonBarButtonStyle" />
+
+                <Button
+                    android:id="@+id/applica_filtri_e_cerca"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:text="@string/applica_filtri_e_cerca"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@id/filter_reset" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
 
 </LinearLayout>

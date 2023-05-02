@@ -23,4 +23,11 @@
     <string name="lingua2">Lingua:</string>
     <string name="applica_filtri_e_cerca">Applica Filtri e Cerca</string>
     <string name="resetta_i_filtri">Resetta i filtri</string>
+    <string name="corso">Corso:</string>
+    <string name="tipologia">Tipologia:</string>
+    <string name="seleziona_il_file">Seleziona il file</string>
+    <string name="nessun_file_selezionato">Nessun file selezionato</string>
+    <string name="consento_di_rendere_la_mia_mail_pubblica">Consento di rendere la mia mail pubblica.</string>
+    <string name="nome_del_materiale">Nome del materiale:</string>
+    <string name="pubblica">PUBBLICA</string>
 </resources>
