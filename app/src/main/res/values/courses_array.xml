@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="courses_array">
-        <item> </item>
         <item>Analisi matematica 1 (o Analisi 1)</item>
         <item>Analisi 2</item>
         <item>Geometria e algebra lineare</item>

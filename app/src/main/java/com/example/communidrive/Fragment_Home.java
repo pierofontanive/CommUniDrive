@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
@@ -16,9 +17,15 @@ import android.widget.Spinner;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 
+import java.text.DateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 import java.util.Objects;
 
 public class Fragment_Home extends Fragment implements AdapterView.OnItemSelectedListener {
@@ -26,7 +33,11 @@ public class Fragment_Home extends Fragment implements AdapterView.OnItemSelecte
     private Button filterButton, applyfilterButton, resetfilterButton;
     private Context main_context = getContext();
     private Spinner uni_spinner, dep_spinner, courses_spinner, academic_year_spinner, types_spinner, lang_spinner, prof_spinner;
+    private AutoCompleteTextView uni_comptextview, dep_comptextview, courses_comptextview, academic_year_comptextview, types_comptextview, lang_comptextview, prof_comptextview;
     private int uni_value, dep_value, courses_value, ay_value, type_value, lang_value, prof_value;
+    private int uni_text;
+
+    List<Note> noteList;
 
     @Override public void onAttach(@NonNull Context context) { super.onAttach(context); main_context = context; }
     @Override public void onDetach() { super.onDetach(); main_context = null; }
@@ -34,6 +45,17 @@ public class Fragment_Home extends Fragment implements AdapterView.OnItemSelecte
 
         View rootView = inflater.inflate(R.layout.fragment_home, container, false);
         filterButton = (Button) rootView.findViewById(R.id.filter_button);
+
+        Date date = new Date();
+        String stringDate = DateFormat.getDateInstance().format(date);
+
+        noteList = new ArrayList<>();
+        for (int i=0; i<14; i++) { noteList.add(new Note("Titolo "+i, R.drawable.ic_launcher_background, "Descrizione "+i, "Geppetto "+i, date, "Uni of Trento", "Dep of Ing", "LdPSMeT", "Appunti", "Mauro")); }
+
+        RecyclerView recyclerView = (RecyclerView) rootView.findViewById(R.id.note_recycleview);
+        RecycleViewAdapter recycleViewAdapter = new RecycleViewAdapter(main_context, noteList);
+        recyclerView.setAdapter(recycleViewAdapter);
+        recyclerView.setLayoutManager(new GridLayoutManager(main_context, 3));
 
         filterButton.setOnClickListener(new View.OnClickListener() {
             @Override public void onClick(View view) {
@@ -43,11 +65,10 @@ public class Fragment_Home extends Fragment implements AdapterView.OnItemSelecte
                 bottomSheetDialog.setCanceledOnTouchOutside(true);
                 bottomSheetDialog.show();
 
-                // Uni_spinner instance
+                // uni_comptextview instance
                 uni_spinner = (Spinner) bottomSheetView.findViewById(R.id.uni_spinner);
-                ArrayAdapter<CharSequence> uni_spinner_adapter = ArrayAdapter.createFromResource(main_context, R.array.universities_array, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item);
+                ArrayAdapter<CharSequence> uni_spinner_adapter = ArrayAdapter.createFromResource(main_context, R.array.universities_array, android.R.layout.simple_dropdown_item_1line);
                 uni_spinner.setAdapter(uni_spinner_adapter);
-                uni_spinner.setOnItemSelectedListener(Fragment_Home.this);
 
                 // Dep_spinner instance
                 dep_spinner = (Spinner) bottomSheetView.findViewById(R.id.dep_spinner);

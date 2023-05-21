@@ -30,4 +30,11 @@
     <string name="consento_di_rendere_la_mia_mail_pubblica">Consento di rendere la mia mail pubblica.</string>
     <string name="nome_del_materiale">Nome del materiale:</string>
     <string name="pubblica">PUBBLICA</string>
+    <string name="seleziona_l_universit">Università</string>
+    <string name="seleziona_il_dipartimento">Dipartimento</string>
+    <string name="seleziona_il_corso">Corso</string>
+    <string name="seleziona_l_a_a">A.a.</string>
+    <string name="seleziona_il_professore">Professore</string>
+    <string name="seleziona_la_tipologia">Tipologia</string>
+    <string name="seleziona_la_lingua">Lingua</string>
 </resources>

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="departments_array">
-        <item> </item>
         <item>Biologia Cellulare, Computazionale e Integrata, CIBIO</item>
         <item>Economia e Management</item>
         <item>Facoltà di Giurisprudenza</item>

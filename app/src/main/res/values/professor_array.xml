@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="prof_array">
-        <item> </item>
         <item>Marco</item>
         <item>Fausto</item>
         <item>Paolo</item>

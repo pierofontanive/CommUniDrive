@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="aa_array">
-        <item> </item>
         <item>15/16</item>
         <item>16/17</item>
         <item>17/18</item>

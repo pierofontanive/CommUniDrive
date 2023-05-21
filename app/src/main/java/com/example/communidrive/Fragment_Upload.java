@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -23,7 +24,7 @@ public class Fragment_Upload extends Fragment implements AdapterView.OnItemSelec
 
     private Button filePickerButton;
     private Context main_context = getContext();
-    private Spinner uni_spinner, dep_spinner, courses_spinner, academic_year_spinner, types_spinner, lang_spinner, prof_spinner;
+    private AutoCompleteTextView uni_comptextview, dep_comptextview, courses_comptextview, academic_year_comptextview, types_comptextview, lang_comptextview, prof_comptextview;
     private TextView filePath_TextView;
     private static final int PICK_PDF_FILE = 2;
 
@@ -35,7 +36,6 @@ public class Fragment_Upload extends Fragment implements AdapterView.OnItemSelec
         filePickerButton = (Button) rootView.findViewById(R.id.filePicker_Button);
         filePath_TextView = (TextView) rootView.findViewById(R.id.filePicker_path_textview);
 
-
         filePickerButton.setOnClickListener(new View.OnClickListener() {
             @Override public void onClick(View view) {
                 Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
@@ -45,47 +45,40 @@ public class Fragment_Upload extends Fragment implements AdapterView.OnItemSelec
             }
         });
 
-        // Uni_spinner instance
-        uni_spinner = (Spinner) rootView.findViewById(R.id.uni_spinner);
-        ArrayAdapter<CharSequence> uni_spinner_adapter = ArrayAdapter.createFromResource(main_context, R.array.universities_array, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item);
-        uni_spinner.setAdapter(uni_spinner_adapter);
-        uni_spinner.setOnItemSelectedListener(Fragment_Upload.this);
+        // uni_comptextview instance
+        uni_comptextview = (AutoCompleteTextView) rootView.findViewById(R.id.uni_autocompletetextview);
+        ArrayAdapter<CharSequence> uni_comptextview_adapter = ArrayAdapter.createFromResource(main_context, R.array.universities_array, R.layout.dropdown_list_item);
+        uni_comptextview.setAdapter(uni_comptextview_adapter);
 
-        // Dep_spinner instance
-        dep_spinner = (Spinner) rootView.findViewById(R.id.dep_spinner);
-        ArrayAdapter<CharSequence> dep_spinner_adapter = ArrayAdapter.createFromResource(main_context, R.array.departments_array, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item);
-        dep_spinner.setAdapter(dep_spinner_adapter);
-        dep_spinner.setOnItemSelectedListener(Fragment_Upload.this);
+        // dep_comptextview instance
+        dep_comptextview = (AutoCompleteTextView) rootView.findViewById(R.id.dep_autocompletetextview);
+        ArrayAdapter<CharSequence> dep_comptextview_adapter = ArrayAdapter.createFromResource(main_context, R.array.departments_array, R.layout.dropdown_list_item);
+        dep_comptextview.setAdapter(dep_comptextview_adapter);
 
-        // Courses_spinner instance
-        courses_spinner = (Spinner) rootView.findViewById(R.id.courses_spinner);
-        ArrayAdapter<CharSequence> courses_spinner_adapter = ArrayAdapter.createFromResource(main_context, R.array.courses_array, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item);
-        courses_spinner.setAdapter(courses_spinner_adapter);
-        courses_spinner.setOnItemSelectedListener(Fragment_Upload.this);
+        // courses_comptextview instance
+        courses_comptextview = (AutoCompleteTextView) rootView.findViewById(R.id.courses_autocompletetextview);
+        ArrayAdapter<CharSequence> courses_comptextview_adapter = ArrayAdapter.createFromResource(main_context, R.array.courses_array, R.layout.dropdown_list_item);
+        courses_comptextview.setAdapter(courses_comptextview_adapter);
 
-        // AcademicYear_spinner instance
-        academic_year_spinner = (Spinner) rootView.findViewById(R.id.aa_spinner);
-        ArrayAdapter<CharSequence> academic_year_spinner_adapter = ArrayAdapter.createFromResource(main_context, R.array.aa_array, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item);
-        academic_year_spinner.setAdapter(academic_year_spinner_adapter);
-        academic_year_spinner.setOnItemSelectedListener(Fragment_Upload.this);
+        // academic_year_comptextview instance
+        academic_year_comptextview = (AutoCompleteTextView) rootView.findViewById(R.id.aa_autocompletetextview);
+        ArrayAdapter<CharSequence> academic_year_comptextview_adapter = ArrayAdapter.createFromResource(main_context, R.array.aa_array, R.layout.dropdown_list_item);
+        academic_year_comptextview.setAdapter(academic_year_comptextview_adapter);
 
-        // Note types instance
-        types_spinner = (Spinner) rootView.findViewById(R.id.type_spinner);
-        ArrayAdapter<CharSequence> types_spinner_adapter = ArrayAdapter.createFromResource(main_context, R.array.types_array, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item);
-        types_spinner.setAdapter(types_spinner_adapter);
-        types_spinner.setOnItemSelectedListener(Fragment_Upload.this);
+        // types_comptextview instance
+        types_comptextview = (AutoCompleteTextView) rootView.findViewById(R.id.type_autocompletetextview);
+        ArrayAdapter<CharSequence> types_comptextview_adapter = ArrayAdapter.createFromResource(main_context, R.array.types_array, R.layout.dropdown_list_item);
+        types_comptextview.setAdapter(types_comptextview_adapter);
 
         // Language spinner instance
-        lang_spinner = (Spinner) rootView.findViewById(R.id.lang_spinner);
-        ArrayAdapter<CharSequence> lang_spinner_adapter = ArrayAdapter.createFromResource(main_context, R.array.languages, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item);
-        lang_spinner.setAdapter(lang_spinner_adapter);
-        lang_spinner.setOnItemSelectedListener(Fragment_Upload.this);
+        lang_comptextview = (AutoCompleteTextView) rootView.findViewById(R.id.lang_autocompletetextview);
+        ArrayAdapter<CharSequence> lang_comptextview_adapter = ArrayAdapter.createFromResource(main_context, R.array.languages, R.layout.dropdown_list_item);
+        lang_comptextview.setAdapter(lang_comptextview_adapter);
 
         // Professor spinner instance
-        prof_spinner = (Spinner) rootView.findViewById(R.id.prof_spinner);
-        ArrayAdapter<CharSequence> prof_spinner_adapter = ArrayAdapter.createFromResource(main_context, R.array.prof_array, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item);
-        prof_spinner.setAdapter(prof_spinner_adapter);
-        prof_spinner.setOnItemSelectedListener(Fragment_Upload.this);
+        prof_comptextview = (AutoCompleteTextView) rootView.findViewById(R.id.prof_autocompletetextview);
+        ArrayAdapter<CharSequence> prof_comptextview_adapter = ArrayAdapter.createFromResource(main_context, R.array.prof_array, R.layout.dropdown_list_item);
+        prof_comptextview.setAdapter(prof_comptextview_adapter);
 
         return rootView;
     }

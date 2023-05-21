@@ -15,6 +15,8 @@ import android.widget.Spinner;
 
 import com.google.android.material.navigation.NavigationView;
 
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, AdapterView.OnItemSelectedListener {
 
     private DrawerLayout drawer;
