@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="authors_array">
+        <item>Luca</item>
+        <item>Giulia</item>
+        <item>Marco</item>
+        <item>Sofia</item>
+        <item>Matteo</item>
+        <item>Chiara</item>
+        <item>Alessandro</item>
+        <item>Federica</item>
+        <item>Giovanni</item>
+        <item>Valentina</item>
+        <item>Francesco</item>
+        <item>Martina</item>
+        <item>Andrea</item>
+        <item>Elena</item>
+        <item>Antonio</item>
+        <item>Laura</item>
+        <item>Davide</item>
+        <item>Sara</item>
+    </string-array>
+</resources>

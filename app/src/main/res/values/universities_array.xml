@@ -2,5 +2,23 @@
 <resources>
     <string-array name="universities_array">
         <item>Università degli Studi di Trento</item>
+        <item>Università di Padova</item>
+        <item>Università degli Studi di Milano</item>
+        <item>Università degli Studi di Roma La Sapienza</item>
+        <item>Università degli Studi di Napoli Federico II</item>
+        <item>Università degli Studi di Firenze</item>
+        <item>Università degli Studi di Torino</item>
+        <item>Università degli Studi di Pisa</item>
+        <item>Università degli Studi di Genova</item>
+        <item>Università degli Studi di Palermo</item>
+        <item>Università degli Studi di Bari Aldo Moro</item>
+        <item>Università degli Studi di Siena</item>
+        <item>Università degli Studi di Perugia</item>
+        <item>Università degli Studi di Catania</item>
+        <item>Università degli Studi di Ferrara</item>
+        <item>Università degli Studi di Messina</item>
+        <item>Università degli Studi di Milano-Bicocca</item>
+        <item>Università degli Studi di Salerno</item>
+        <item>Università degli Studi di Modena e Reggio Emilia</item>
     </string-array>
 </resources>

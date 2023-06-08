@@ -1,21 +1,26 @@
 package com.example.communidrive;
 
-import java.util.Date;
+import android.os.Parcel;
+import android.os.Parcelable;
+
+import androidx.annotation.NonNull;
 
 public class Note {
     private String title;
     private int image;
     private String description;
     private String user;
-    private Date date;
+    private String date;
     private String uni;
     private String dep;
     private String course;
+    private String aa;
     private String noteType;
     private String prof;
+    private String file_path;
 
     // Constructor
-    public Note(String title, int image, String description, String user, Date date, String uni, String dep, String course, String noteType, String prof) {
+    public Note(String title, int image, String description, String user, String date, String uni, String dep, String course, String aa, String noteType, String prof, String file_path) {
         this.title = title;
         this.image = image;
         this.description = description;
@@ -24,8 +29,10 @@ public class Note {
         this.uni = uni;
         this.dep = dep;
         this.course = course;
+        this.aa = aa;
         this.noteType = noteType;
         this.prof = prof;
+        this.file_path = file_path;
     }
 
     // Getter
@@ -33,22 +40,26 @@ public class Note {
     public int getImage() { return image; }
     public String getDescription() { return description; }
     public String getUser() { return user; }
-    public Date getDate() { return date; }
+    public String getDate() { return date; }
     public String getUni() { return uni; }
     public String getDep() { return dep; }
     public String getCourse() { return course; }
+    public String getAa() { return aa; }
     public String getNoteType() { return noteType; }
     public String getProf() { return prof; }
+    public String getFile_path() { return file_path; }
 
     // Setter
     public void setTitle(String title) { this.title = title; }
     public void setImage(int image) { this.image = image; }
     public void setDescription(String description) { this.description = description; }
     public void setUser(String user) { this.user = user; }
-    public void setDate(Date date) { this.date = date; }
+    public void setDate(String date) { this.date = date; }
     public void setUni(String uni) { this.uni = uni; }
     public void setDep(String dep) { this.dep = dep; }
     public void setCourse(String course) { this.course = course; }
+    public void setAa(String aa) { this.aa = aa; }
     public void setNoteType(String noteType) { this.noteType = noteType; }
     public void setProf(String prof) { this.prof = prof; }
+    public void setFile_path(String file_path) { this.file_path = file_path; }
 }

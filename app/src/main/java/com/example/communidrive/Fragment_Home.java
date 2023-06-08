@@ -2,8 +2,11 @@ package com.example.communidrive;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.AssetManager;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +15,7 @@ import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.SearchView;
 import android.widget.Spinner;
 
 import androidx.annotation.NonNull;
@@ -37,7 +41,7 @@ public class Fragment_Home extends Fragment implements AdapterView.OnItemSelecte
     private int uni_value, dep_value, courses_value, ay_value, type_value, lang_value, prof_value;
     private int uni_text;
 
-    List<Note> noteList;
+    List<Note> noteList, downloadList;
 
     @Override public void onAttach(@NonNull Context context) { super.onAttach(context); main_context = context; }
     @Override public void onDetach() { super.onDetach(); main_context = null; }
@@ -46,17 +50,15 @@ public class Fragment_Home extends Fragment implements AdapterView.OnItemSelecte
         View rootView = inflater.inflate(R.layout.fragment_home, container, false);
         filterButton = (Button) rootView.findViewById(R.id.filter_button);
 
-        Date date = new Date();
-        String stringDate = DateFormat.getDateInstance().format(date);
+        noteList = ((MainActivity) requireActivity()).getNoteList();
 
-        noteList = new ArrayList<>();
-        for (int i=0; i<14; i++) { noteList.add(new Note("Titolo "+i, R.drawable.ic_launcher_background, "Descrizione "+i, "Geppetto "+i, date, "Uni of Trento", "Dep of Ing", "LdPSMeT", "Appunti", "Mauro")); }
-
+        // Imposto il recyclerview
         RecyclerView recyclerView = (RecyclerView) rootView.findViewById(R.id.note_recycleview);
         RecycleViewAdapter recycleViewAdapter = new RecycleViewAdapter(main_context, noteList);
         recyclerView.setAdapter(recycleViewAdapter);
         recyclerView.setLayoutManager(new GridLayoutManager(main_context, 3));
 
+        // Gestione del filterbutton
         filterButton.setOnClickListener(new View.OnClickListener() {
             @Override public void onClick(View view) {
                 BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(main_context, R.style.BottomSheetDialogTheme);

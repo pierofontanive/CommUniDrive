@@ -4,6 +4,7 @@ import static android.app.Activity.RESULT_OK;
 
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.provider.DocumentsContract;
 import android.view.LayoutInflater;
@@ -19,14 +20,26 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
+
+import com.google.android.material.navigation.NavigationView;
+import com.google.android.material.textfield.TextInputEditText;
+
+import java.text.DateFormat;
+import java.util.Date;
+import java.util.List;
+import java.util.Objects;
 
 public class Fragment_Upload extends Fragment implements AdapterView.OnItemSelectedListener {
 
-    private Button filePickerButton;
+    private Button filePickerButton, file_submitButton;
     private Context main_context = getContext();
+    private TextInputEditText name_textinputedittext;
     private AutoCompleteTextView uni_comptextview, dep_comptextview, courses_comptextview, academic_year_comptextview, types_comptextview, lang_comptextview, prof_comptextview;
     private TextView filePath_TextView;
     private static final int PICK_PDF_FILE = 2;
+    List<Note>  noteList;
 
     @Override public void onAttach(@NonNull Context context) { super.onAttach(context); main_context = context; }
     @Override public void onDetach() { super.onDetach(); main_context = null; }
@@ -35,13 +48,42 @@ public class Fragment_Upload extends Fragment implements AdapterView.OnItemSelec
         View rootView = inflater.inflate(R.layout.fragment_upload, container, false);
         filePickerButton = (Button) rootView.findViewById(R.id.filePicker_Button);
         filePath_TextView = (TextView) rootView.findViewById(R.id.filePicker_path_textview);
+        file_submitButton = (Button) rootView.findViewById(R.id.submit_button);
+        name_textinputedittext = (TextInputEditText) rootView.findViewById(R.id.note_name);
 
+        // Sets default random note samples everytime I start the app
+        Date date = new Date(); String stringDate = DateFormat.getDateInstance().format(date);
+
+        // Opens built-int file picker activity
         filePickerButton.setOnClickListener(new View.OnClickListener() {
             @Override public void onClick(View view) {
                 Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
                 intent.addCategory(Intent.CATEGORY_OPENABLE);
                 intent.setType("application/pdf");
                 startActivityForResult(intent, PICK_PDF_FILE);
+            }
+        });
+
+        file_submitButton.setOnClickListener(new View.OnClickListener() {
+            @Override public void onClick(View view) {
+                noteList = ((MainActivity) requireActivity()).getNoteList();
+
+                // Recupero informazioni dai completetextview
+                String title = name_textinputedittext.getText().toString();
+                String uni = uni_comptextview.getText().toString();
+                String dep = dep_comptextview.getText().toString();
+                String course = courses_comptextview.getText().toString();
+                String aa = academic_year_comptextview.getText().toString();
+                String type = types_comptextview.getText().toString();
+                String lang = lang_comptextview.getText().toString();
+                String prof = prof_comptextview.getText().toString();
+
+                noteList.add(new Note(title, R.drawable.ic_launcher_background, "desc", "user", stringDate, uni, dep, course, aa, type, prof, filePath_TextView.getText().toString()));
+
+                // Switch back to fragment home
+                FragmentManager fragmentManager = getFragmentManager();
+                if (fragmentManager != null) { fragmentManager.beginTransaction().replace(R.id.fragment_container, new Fragment_Home()).commit(); }
+
             }
         });
 
@@ -92,8 +134,9 @@ public class Fragment_Upload extends Fragment implements AdapterView.OnItemSelec
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode==PICK_PDF_FILE) {
             if (resultCode==RESULT_OK) {
-                String path = data.getData().getPath();
-                filePath_TextView.setText(path);
+                Uri uri = data.getData();
+                String src = uri.getPath();
+                filePath_TextView.setText(src);
             }
         }
     }

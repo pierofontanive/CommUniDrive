@@ -1,11 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="prof_array">
-        <item>Marco</item>
-        <item>Fausto</item>
-        <item>Paolo</item>
-        <item>Mauro</item>
-        <item>Romeo</item>
-        <item>Paola</item>
+        <item>Rossi</item>
+        <item>Bianchi</item>
+        <item>Russo</item>
+        <item>Esposito</item>
+        <item>Colombo</item>
+        <item>Marino</item>
+        <item>Romano</item>
+        <item>Costa</item>
+        <item>Ferrari</item>
+        <item>De Luca</item>
+        <item>Marchetti</item>
+        <item>Ricci</item>
+        <item>Moretti</item>
+        <item>Conti</item>
+        <item>Galli</item>
+        <item>Lombardi</item>
+        <item>Gentile</item>
+        <item>Villa</item>
+        <item>Riva</item>
+        <item>Ferri</item>
     </string-array>
 </resources>

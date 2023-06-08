@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="description_array">
+        <item>Appunti completi e organizzati con sintesi chiare e dettagliate dei concetti fondamentali trattati durante il corso.</item>
+        <item>Guida pratica con esempi ed esercizi risolti per una migliore comprensione dei concetti teorici della materia.</item>
+        <item>Compendio di definizioni, formule e diagrammi per una rapida consultazione durante lo studio e la preparazione degli esami.</item>
+        <item>Approfondimento delle principali teorie e concetti, con riferimenti a studi di caso e applicazioni pratiche nel campo.</item>
+        <item>Raccolta di esercizi e problemi con relative soluzioni per allenarsi nella risoluzione pratica degli argomenti trattati.</item>
+        <item>Riassunto dettagliato delle lezioni, con evidenziazione dei punti chiave e delle informazioni cruciali per l\'esame.</item>
+        <item>Appunti strutturati per seguire il corso in modo logico e sequenziale, facilitando l\'apprendimento graduale degli argomenti.</item>
+        <item>Compendio di schemi, tabelle e grafici per una visualizzazione chiara delle informazioni e una memorizzazione efficace.</item>
+        <item>Approfondimento di fonti bibliografiche consigliate dal docente per una visione più completa e approfondita del contenuto del corso.</item>
+        <item>Riepilogo delle discussioni in aula, con annotazioni personali e spunti per la discussione e l\'approfondimento autonomo.</item>
+    </string-array>
+</resources>
