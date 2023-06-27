@@ -10,7 +10,6 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import android.content.Intent;
 import android.content.res.AssetManager;
 import android.os.Bundle;
-import android.os.Environment;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
@@ -19,37 +18,53 @@ import android.widget.Spinner;
 
 import com.google.android.material.navigation.NavigationView;
 
-import java.io.File;
 import java.io.IOException;
 import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Random;
 
-public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, AdapterView.OnItemSelectedListener {
+public class MainActivityAnon extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, AdapterView.OnItemSelectedListener{
 
     private DrawerLayout drawer;
     private Spinner spinner;
 
-    private Button logout;
+    private Button accedi, registrati;
+
     public ArrayList<Note> noteList;
     public ArrayList<Note> downloadList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main_anon);
 
         // Toolbar
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         // Drawer
-        drawer = findViewById(R.id.drawer_layout);
+        drawer = findViewById(R.id.drawer_layout_anon);
+
+        accedi = findViewById(R.id.accedi_button);
+        registrati = findViewById(R.id.registrati_button);
+
+
 
         // NavigationView
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+        View headerView = navigationView.getHeaderView(0);
+        View navHeaderAnonView = headerView.findViewById(R.id.nav_header_anon_layout);
+        //R.layout.nav_header_anon
+
+        navHeaderAnonView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivityAnon.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
 
         // Resources and Spinner
         String[] languages = getResources().getStringArray(R.array.languages);
@@ -64,6 +79,24 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
+
+        accedi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivityAnon.this, Login.class);
+                startActivity(intent);
+            }
+        });
+
+        registrati.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivityAnon.this, Register.class);
+                startActivity(intent);
+            }
+        });
+
+
 
         // Sets default random note samples everytime I start the app
         Date date = new Date(); String stringDate = DateFormat.getDateInstance().format(date);
@@ -109,17 +142,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new Fragment_Home()).commit();
             navigationView.setCheckedItem(R.id.nav_home);
         }
-
-        logout = findViewById(R.id.log_out_button);
-        logout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, Login.class);
-                startActivity(intent);
-            }
-        });
-
-
     }
 
     @Override public boolean onNavigationItemSelected(@NonNull MenuItem item) {

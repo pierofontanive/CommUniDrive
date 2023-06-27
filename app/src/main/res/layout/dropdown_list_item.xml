@@ -7,4 +7,4 @@
     android:gravity="start"
     android:padding="16dp"
     android:textAppearance="?android:attr/textAppearanceMediumInverse"
-    android:background="@color/design_default_color_background"/>
+    android:background="@color/test"/>

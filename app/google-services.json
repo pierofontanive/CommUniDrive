@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "402720501317",
+    "firebase_url": "https://communidrive-6a61e-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "communidrive-6a61e",
+    "storage_bucket": "communidrive-6a61e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:402720501317:android:a708eff3ac89af22f43d2c",
+        "android_client_info": {
+          "package_name": "com.example.communidrive"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "402720501317-f0b2ovi4pl2os1od66dm4351dkmqmnbc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAoq0irgVwlt4P0u19gOeSrxpLWIMXYdHU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "402720501317-f0b2ovi4pl2os1od66dm4351dkmqmnbc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

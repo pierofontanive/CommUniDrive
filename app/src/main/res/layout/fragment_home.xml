@@ -25,9 +25,13 @@
         style="?attr/materialSearchViewPrefixStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/barraricerca"
+        android:queryHint="Effettua ricerca"
+        android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
         android:iconifiedByDefault="false"
         app:layout_constraintEnd_toEndOf="parent"
+        android:searchIcon="@drawable/baseline_search_24"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/effettua_ricerca_textView" />
 
@@ -37,6 +41,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
+        android:background="@color/test"
         android:text="@string/filtri"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/searchView" />

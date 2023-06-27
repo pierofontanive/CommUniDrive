@@ -7,6 +7,10 @@
     <string name="nav_header_username">Nome Utente</string>
     <string name="nav_header_gotoprofile">Vai al profilo</string>
 
+    <string name="nav_header_anon_logo">Immagine del profilo dell\'utente anonimo</string>
+    <string name="nav_header_anon_username">Utente Anonimo</string>
+    <string name="nav_header_anon_gotoprofile">Accedi per visualizzare il profilo</string>
+
     <string name="drawer_logout">ESCI</string>
     <string name="home">Home</string>
     <string name="carica_appunti">Carica Appunti</string>
@@ -38,4 +42,9 @@
     <string name="seleziona_la_tipologia">Tipologia</string>
     <string name="seleziona_la_lingua">Lingua</string>
     <string name="scarica">SCARICA</string>
+    <string name="email">email</string>
+    <string name="password">password</string>
+    <string name="username">username</string>
+    <string name="nome">nome</string>
+    <string name="cognome">cognome</string>
 </resources>

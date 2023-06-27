@@ -50,7 +50,33 @@ public class Fragment_Home extends Fragment implements AdapterView.OnItemSelecte
         View rootView = inflater.inflate(R.layout.fragment_home, container, false);
         filterButton = (Button) rootView.findViewById(R.id.filter_button);
 
-        noteList = ((MainActivity) requireActivity()).getNoteList();
+        Activity activity = requireActivity();
+        if(activity instanceof MainActivityAnon) {
+            noteList = ((MainActivityAnon)activity).getNoteList();
+        } else if(activity instanceof MainActivity){
+            noteList = ((MainActivity)activity).getNoteList();
+        }
+
+        //Gestione del SearchView
+        SearchView searchView = rootView.findViewById(R.id.searchView);
+        searchView.setIconifiedByDefault(false);
+
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                // Azione da eseguire quando l'utente preme il pulsante di ricerca
+                return true;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                // Azione da eseguire quando il testo di ricerca cambia
+                return false;
+            }
+        });
+
+
+
 
         // Imposto il recyclerview
         RecyclerView recyclerView = (RecyclerView) rootView.findViewById(R.id.note_recycleview);
