@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="languages">
+        <item>-- N/D --</item>
         <item>ITA</item>
         <item>ENG</item>
     </string-array>

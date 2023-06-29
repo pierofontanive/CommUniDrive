@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="authors_array">
+        <item>-- N/D --</item>
         <item>Luca</item>
         <item>Giulia</item>
         <item>Marco</item>

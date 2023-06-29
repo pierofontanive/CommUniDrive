@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="prof_array">
+        <item>-- N/D --</item>
         <item>Rossi</item>
         <item>Bianchi</item>
         <item>Russo</item>

@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private Spinner spinner;
 
     private Button logout;
-    public ArrayList<Note> noteList;
+    public ArrayList<Note> noteList = NoteListHolder.noteArrayList;
     public ArrayList<Note> downloadList;
 
     @Override
@@ -69,10 +69,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         Date date = new Date(); String stringDate = DateFormat.getDateInstance().format(date);
 
         AssetManager assetManager = getAssets();
-        noteList = new ArrayList<>();
         downloadList = new ArrayList<>();
 
+        noteList = NoteListHolder.noteArrayList;
+
         // General, can be random and needs no checks
+        /*
         String[] uni = getResources().getStringArray(R.array.universities_array); String random_uni;
         String[] author = getResources().getStringArray(R.array.authors_array); String random_author;
         String[] dep = getResources().getStringArray(R.array.departments_array); String random_dep;
@@ -80,6 +82,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         String[] type = getResources().getStringArray(R.array.types_array); String random_type;
         String[] description = getResources().getStringArray(R.array.description_array); String random_desc;
         String[] aa = getResources().getStringArray(R.array.aa_array); String random_aa;
+
 
 
 
@@ -104,6 +107,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 noteList.add(new Note(file_wo_ext, R.drawable.ic_launcher_background, random_desc, random_author, "" + stringDate, random_uni, random_dep, "LdPSMeT", random_aa, random_type, random_prof, file));
             }
         } catch (IOException e1) { e1.printStackTrace(); }
+        */
+
+        //
+        System.out.println("NoteListHolder.noteArrayList: "+ NoteListHolder.noteArrayList.size());
+        System.out.println("noteList: "+ noteList.size());
+        //
 
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new Fragment_Home()).commit();

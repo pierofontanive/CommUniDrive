@@ -27,6 +27,7 @@ import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.textfield.TextInputEditText;
 
 import java.text.DateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Objects;
@@ -39,7 +40,7 @@ public class Fragment_Upload extends Fragment implements AdapterView.OnItemSelec
     private AutoCompleteTextView uni_comptextview, dep_comptextview, courses_comptextview, academic_year_comptextview, types_comptextview, lang_comptextview, prof_comptextview;
     private TextView filePath_TextView;
     private static final int PICK_PDF_FILE = 2;
-    List<Note>  noteList;
+    ArrayList<Note> noteList;
 
     @Override public void onAttach(@NonNull Context context) { super.onAttach(context); main_context = context; }
     @Override public void onDetach() { super.onDetach(); main_context = null; }
@@ -79,6 +80,9 @@ public class Fragment_Upload extends Fragment implements AdapterView.OnItemSelec
                 String prof = prof_comptextview.getText().toString();
 
                 noteList.add(new Note(title, R.drawable.ic_launcher_background, "desc", "user", stringDate, uni, dep, course, aa, type, prof, filePath_TextView.getText().toString()));
+
+                // Aggiorno l'holder
+                NoteListHolder.noteArrayList=noteList;
 
                 // Switch back to fragment home
                 FragmentManager fragmentManager = getFragmentManager();

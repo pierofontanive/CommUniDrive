@@ -1,5 +1,6 @@
 package com.example.communidrive;
 
+import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.os.Environment;
@@ -15,20 +16,29 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Fragment_History extends Fragment implements AdapterView.OnItemSelectedListener {
 
     private Context main_context = getContext();
     private String title;
-    List<Note> downloadList;
+    ArrayList<Note> downloadList;
 
     @Override public void onAttach(@NonNull Context context) { super.onAttach(context); main_context = context; }
     @Override public void onDetach() { super.onDetach(); main_context = null; }
     @Nullable @Override public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_history, container, false);
 
-        downloadList = ((MainActivity) requireActivity()).getDownloadList();
+        // Get download list
+        Activity activity = getActivity();
+        if (activity != null) {
+            String activityName = activity.getClass().getSimpleName() + "";
+            if (activityName.equals("MainActivity")) downloadList = ((MainActivity) requireActivity()).getDownloadList();
+            else if (activityName.equals("MainActivityAnon")) downloadList = ((MainActivityAnon) requireActivity()).getDownloadList();
+        }
+
         emptyList(downloadList);
 
         // Check for files to add to downloadlist

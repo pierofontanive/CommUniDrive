@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="description_array">
+        <item>-- N/D --</item>
         <item>Appunti completi e organizzati con sintesi chiare e dettagliate dei concetti fondamentali trattati durante il corso.</item>
         <item>Guida pratica con esempi ed esercizi risolti per una migliore comprensione dei concetti teorici della materia.</item>
         <item>Compendio di definizioni, formule e diagrammi per una rapida consultazione durante lo studio e la preparazione degli esami.</item>
