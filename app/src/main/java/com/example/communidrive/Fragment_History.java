@@ -51,7 +51,7 @@ public class Fragment_History extends Fragment implements AdapterView.OnItemSele
 
         // Imposto il recyclerview
         RecyclerView recyclerView = (RecyclerView) rootView.findViewById(R.id.download_recycleview);
-        RecycleViewAdapter recycleViewAdapter = new RecycleViewAdapter(main_context, downloadList);
+        RecycleViewAdapterPDF recycleViewAdapter = new RecycleViewAdapterPDF(main_context, downloadList);
         recyclerView.setAdapter(recycleViewAdapter);
         recyclerView.setLayoutManager(new GridLayoutManager(main_context, 3));
 

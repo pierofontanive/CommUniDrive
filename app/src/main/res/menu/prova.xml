@@ -1,17 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item android:id="@+id/nav_home"
-        android:icon="@drawable/baseline_home_24"
-        android:title="Home"/>
+    <group android:checkableBehavior="single">
+        <item android:id="@+id/nav_home"
+            android:icon="@drawable/baseline_home_24"
+            android:title="Home"
+            android:iconTint="@color/black"
+            android:textColor = "@color/black"/>
 
-    <item android:id="@+id/nav_history"
-        android:icon="@drawable/baseline_history_24"
-        android:title="Cronologia"/>
+        <item android:id="@+id/nav_history"
+            android:icon="@drawable/baseline_history_24"
+            android:title="Cronologia"
+            android:iconTint="@color/black"
+            android:textColor = "@color/black"/>
 
-    <item android:id="@+id/nav_upload"
-        android:icon="@drawable/baseline_support_agent_24"
-        android:title="Supporto"/>
+        <item android:id="@+id/nav_upload"
+            android:icon="@drawable/baseline_support_agent_24"
+            android:title="Supporto"
+            android:iconTint="@color/black"
+            android:textColor = "@color/black"/>
 
+    </group>
 
 </menu>

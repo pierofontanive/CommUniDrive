@@ -91,13 +91,8 @@ public class Login extends AppCompatActivity {
         String email = emailLogin.getText().toString().trim();
         String password = passwordLogin.getText().toString().trim();
 
-        System.out.println(email);
-        System.out.println(password);
-        //https://communidrive-6a61e-default-rtdb.europe-west1.firebasedatabase.app
         mDatabase = FirebaseDatabase.getInstance("https://communidrive-6a61e-default-rtdb.europe-west1.firebasedatabase.app").getReference("Users");
         Query query = mDatabase.orderByChild("userName").equalTo(email);
-        //Query checkIfUserInDB = mDatabase.orderByChild("username").equalTo(email);
-        //checkIfUserInDB.addListenerForSingleValueEvent(new ValueEventListener() {
         query.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -111,7 +106,17 @@ public class Login extends AppCompatActivity {
 
                     if(Objects.equals(passwordDB, password)){
                         emailLogin.setError(null);
+                        //mi salvo il nome, il cognome e username dell'utente
+                        String nomeProfilo = snapshot.child(email).child("nome").getValue(String.class);
+                        String cognomeProfilo = snapshot.child(email).child("cognome").getValue(String.class);
                         Intent intent = new Intent(Login.this, MainActivity.class);
+                        System.out.println("Nome: " + nomeProfilo);
+                        System.out.println("Cognome: " + cognomeProfilo);
+                        System.out.println("Username: " + email);
+
+                        intent.putExtra("NOME", nomeProfilo);
+                        intent.putExtra("COGNOME", cognomeProfilo);
+                        intent.putExtra("USERNAME", email);
                         startActivity(intent);
                     } else {
                         passwordLogin.setError("Wrong Password. Try again!");

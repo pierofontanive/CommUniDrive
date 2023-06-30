@@ -55,22 +55,6 @@ public class Fragment_Home extends Fragment implements AdapterView.OnItemSelecte
         SearchView searchView = rootView.findViewById(R.id.searchView);
         searchView.setIconifiedByDefault(false);
 
-        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextSubmit(String query) {
-                // Azione da eseguire quando l'utente preme il pulsante di ricerca
-                return true;
-            }
-
-            @Override
-            public boolean onQueryTextChange(String newText) {
-                // Azione da eseguire quando il testo di ricerca cambia
-                return false;
-            }
-        });
-
-
-
         // Imposto la lista filtrata
         filteredList = getFilteredList(noteList);
 
@@ -78,7 +62,25 @@ public class Fragment_Home extends Fragment implements AdapterView.OnItemSelecte
         RecyclerView recyclerView = (RecyclerView) rootView.findViewById(R.id.note_recycleview);
         RecycleViewAdapter recycleViewAdapter = new RecycleViewAdapter(main_context, filteredList);
         recyclerView.setAdapter(recycleViewAdapter);
-        recyclerView.setLayoutManager(new GridLayoutManager(main_context, 3));
+        recyclerView.setLayoutManager(new GridLayoutManager(main_context, 1));
+
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                // Azione da eseguire quando l'utente preme il pulsante di ricerca
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                // Azione da eseguire quando il testo di ricerca cambia
+                filteredList = filter(noteList, newText);
+                RecycleViewAdapter recycleViewAdapter_ = new RecycleViewAdapter(main_context, filteredList);
+                recyclerView.setAdapter(recycleViewAdapter_);
+                return false;
+            }
+        });
+
 
         // Gestione del filterbutton
         filterButton.setOnClickListener(new View.OnClickListener() {
@@ -240,6 +242,16 @@ public class Fragment_Home extends Fragment implements AdapterView.OnItemSelecte
             }
         } else for(Note item : arrayList) outputList.add(item);
 
+        return outputList;
+    }
+
+    // Searchview filter function
+    private ArrayList<Note> filter(ArrayList<Note> arrayList, String text) {
+
+        ArrayList<Note> outputList = new ArrayList<>();
+        for(Note item : arrayList) {
+            if (item.getTitle().toLowerCase().contains(text.toLowerCase())) outputList.add(item);
+        }
         return outputList;
     }
 }

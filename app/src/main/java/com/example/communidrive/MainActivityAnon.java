@@ -59,13 +59,13 @@ public class MainActivityAnon extends AppCompatActivity implements NavigationVie
         navHeaderAnonView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivityAnon.this, MainActivity.class);
+                Intent intent = new Intent(MainActivityAnon.this, Login.class);
                 startActivity(intent);
             }
         });
 
         // Resources and Spinner
-        String[] languages = getResources().getStringArray(R.array.languages);
+        String[] old_languages = getResources().getStringArray(R.array.languages); String[] languages = new String[old_languages.length - 1]; System.arraycopy(old_languages, 1, languages, 0, languages.length);
         int[] flags = {R.drawable.ita, R.drawable.eng};
 
         spinner = findViewById(R.id.language_spinner);

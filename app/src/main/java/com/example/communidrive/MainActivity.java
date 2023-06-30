@@ -50,9 +50,31 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         // NavigationView
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+        View headerView = navigationView.getHeaderView(0);
+        View navHeaderAnonView = headerView.findViewById(R.id.nav_header_layout);
+
+        navHeaderAnonView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String nome = getIntent().getStringExtra("NOME");
+                String cognome = getIntent().getStringExtra("COGNOME");
+                String username = getIntent().getStringExtra("USERNAME");
+
+                Intent intent = new Intent(MainActivity.this, Profile.class);
+
+                intent.putExtra("NOME", nome);
+                intent.putExtra("COGNOME", cognome);
+                intent.putExtra("USERNAME", username);
+                startActivity(intent);
+
+
+            }
+        });
+
+
 
         // Resources and Spinner
-        String[] languages = getResources().getStringArray(R.array.languages);
+        String[] old_languages = getResources().getStringArray(R.array.languages); String[] languages = new String[old_languages.length - 1]; System.arraycopy(old_languages, 1, languages, 0, languages.length);
         int[] flags = {R.drawable.ita, R.drawable.eng};
 
         spinner = findViewById(R.id.language_spinner);
