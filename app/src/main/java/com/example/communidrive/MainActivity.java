@@ -7,6 +7,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.res.AssetManager;
 import android.os.Bundle;
@@ -16,8 +17,12 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.Spinner;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
+
+import org.w3c.dom.Text;
 
 import java.io.File;
 import java.io.IOException;
@@ -40,9 +45,18 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        String nome = getIntent().getStringExtra("NOME");
+        String cognome = getIntent().getStringExtra("COGNOME");
+        String username = getIntent().getStringExtra("USERNAME");
+
+
+
+
+
         // Toolbar
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
 
         // Drawer
         drawer = findViewById(R.id.drawer_layout);
@@ -51,15 +65,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
         View headerView = navigationView.getHeaderView(0);
+        TextView nomeUtente = headerView.findViewById(R.id.nomeUtente);
+        nomeUtente.setText(username);
         View navHeaderAnonView = headerView.findViewById(R.id.nav_header_layout);
 
         navHeaderAnonView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String nome = getIntent().getStringExtra("NOME");
-                String cognome = getIntent().getStringExtra("COGNOME");
-                String username = getIntent().getStringExtra("USERNAME");
-
                 Intent intent = new Intent(MainActivity.this, Profile.class);
 
                 intent.putExtra("NOME", nome);
@@ -70,6 +82,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
             }
         });
+
+
+
 
 
 
@@ -157,7 +172,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         switch (item.getItemId()) {
             case R.id.nav_home: getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new Fragment_Home()).commit(); break;
             case R.id.nav_upload: getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new Fragment_Upload()).commit(); break;
-            case R.id.nav_history: getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new Fragment_History()).commit(); break;
+            case R.id.nav_history:
+                File path = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS) + "/CommUniDrive/");
+                File[] files = path.listFiles();
+                if(files == null || files.length == 0){
+                    Toast.makeText(this, "Non hai scaricato alcun documento", Toast.LENGTH_LONG).show();
+                    break;
+                } else {
+                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new Fragment_History()).commit(); break;
+                }
         }
 
         drawer.closeDrawer(GravityCompat.START);
@@ -180,4 +203,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         return noteList;
     }
     public ArrayList<Note> getDownloadList() { return downloadList; }
+
+    //
+    public TextView getUserName() {
+        return (TextView) findViewById(R.id.nomeUtente);
+    }
 }

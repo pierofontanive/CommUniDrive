@@ -16,10 +16,10 @@
         android:src="@mipmap/ic_launcher_round" />
 
     <TextView
+        android:id="@+id/nomeUtente"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingTop="8dp"
-        android:text="@string/nav_header_username"
         android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
 
     <TextView

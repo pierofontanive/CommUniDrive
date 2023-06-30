@@ -4,6 +4,7 @@ import static android.app.Activity.RESULT_OK;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.DocumentsContract;
@@ -38,7 +39,7 @@ public class Fragment_Upload extends Fragment implements AdapterView.OnItemSelec
     private Context main_context = getContext();
     private TextInputEditText name_textinputedittext;
     private AutoCompleteTextView uni_comptextview, dep_comptextview, courses_comptextview, academic_year_comptextview, types_comptextview, lang_comptextview, prof_comptextview;
-    private TextView filePath_TextView;
+    private TextView filePath_TextView, username_TextView;
     private static final int PICK_PDF_FILE = 2;
     ArrayList<Note> noteList;
 
@@ -51,6 +52,8 @@ public class Fragment_Upload extends Fragment implements AdapterView.OnItemSelec
         filePath_TextView = (TextView) rootView.findViewById(R.id.filePicker_path_textview);
         file_submitButton = (Button) rootView.findViewById(R.id.submit_button);
         name_textinputedittext = (TextInputEditText) rootView.findViewById(R.id.note_name);
+
+        username_TextView = ((MainActivity) requireActivity()).getUserName();
 
         // Sets default random note samples everytime I start the app
         Date date = new Date(); String stringDate = DateFormat.getDateInstance().format(date);
@@ -79,7 +82,9 @@ public class Fragment_Upload extends Fragment implements AdapterView.OnItemSelec
                 String lang = lang_comptextview.getText().toString();
                 String prof = prof_comptextview.getText().toString();
 
-                noteList.add(new Note(title, R.drawable.ic_launcher_background, "desc", "user", stringDate, uni, dep, course, aa, type, prof, filePath_TextView.getText().toString()));
+                String user = username_TextView.getText().toString();
+
+                noteList.add(new Note(title, R.drawable.ic_launcher_background, "desc", user, stringDate, uni, dep, course, aa, type, prof, filePath_TextView.getText().toString()));
 
                 // Aggiorno l'holder
                 NoteListHolder.noteArrayList=noteList;

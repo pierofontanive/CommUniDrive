@@ -17,6 +17,7 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.SearchView;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -166,42 +167,6 @@ public class Fragment_Home extends Fragment implements AdapterView.OnItemSelecte
     @Override public void onNothingSelected(AdapterView<?> adapterView) { }
 
     // List filter function
-    private ArrayList<Note> old_getFilteredList(ArrayList<Note> arrayList) {
-
-        // Output list
-        ArrayList<Note> outputList = new ArrayList<>();
-
-        // Optimization (kinda), check which fields have modified parameters
-        boolean uni_check = uni_value > 1;
-        boolean dep_check = dep_value > 1;
-        boolean courses_check = courses_value > 1;
-        boolean ay_check = ay_value > 1;
-        boolean type_check = type_value > 1;
-        boolean lang_check = lang_value > 1;
-        boolean prof_check = prof_value > 1;
-
-        for(Note item : arrayList) {
-
-            boolean final_check = true;
-
-            // Cycles all filters;
-            while (final_check) {
-
-                // If the field is changed, check if Item's string is equals to the filter's one.
-                if (uni_check) { if (!item.getUni().equals(uni_spinner.getItemAtPosition(uni_value))) { final_check = false; }}
-                if (dep_check) { if (!item.getDep().equals(dep_spinner.getItemAtPosition(dep_value))) { final_check = false; }}
-                if (courses_check) { if (!item.getCourse().equals(courses_spinner.getItemAtPosition(courses_value))) { final_check = false; }}
-                if (ay_check) { if (!item.getAa().equals(academic_year_spinner.getItemAtPosition(ay_value))) { final_check = false; }}
-                if (type_check) { if (!item.getNoteType().equals(types_spinner.getItemAtPosition(type_value))) { final_check = false; }}
-                // if (lang_check) { if (item.get().equals(uni_spinner.getItemAtPosition(uni_value))) { outputList.add(item); } else final_check = false; }
-                if (prof_check) { if (!item.getProf().equals(prof_spinner.getItemAtPosition(prof_value))) { final_check = false; }}
-
-                outputList.add(item);
-                final_check = false;
-            }
-        }
-        return outputList;
-    }
     private ArrayList<Note> getFilteredList(ArrayList<Note> arrayList) {
 
         // Output list

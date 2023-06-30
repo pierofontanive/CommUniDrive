@@ -2,6 +2,8 @@ package com.example.communidrive;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.view.LayoutInflater;
@@ -44,8 +46,10 @@ public class Fragment_History extends Fragment implements AdapterView.OnItemSele
         // Check for files to add to downloadlist
         File path = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS) + "/CommUniDrive/");
         File[] files = path.listFiles();
-        for (int i = 0; i < files.length; i++) {
-            downloadList.add(new Note(files[i].getName(),R.drawable.ic_launcher_background,null,null,null,null,null,null,null,null,null,files[i].getPath()));
+        if(files != null && files.length > 0) {
+            for (File file : files) {
+                downloadList.add(new Note(file.getName(), R.drawable.ic_launcher_background, null, null, null, null, null, null, null, null, null, file.getPath()));
+            }
         }
 
 
@@ -62,6 +66,6 @@ public class Fragment_History extends Fragment implements AdapterView.OnItemSele
         downloadList.clear();
     }
 
-    @Override public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {  }
+    @Override public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) { }
     @Override public void onNothingSelected(AdapterView<?> adapterView) { }
 }
