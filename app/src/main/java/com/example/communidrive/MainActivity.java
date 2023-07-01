@@ -48,6 +48,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         String nome = getIntent().getStringExtra("NOME");
         String cognome = getIntent().getStringExtra("COGNOME");
         String username = getIntent().getStringExtra("USERNAME");
+        String email = getIntent().getStringExtra("EMAIL");
 
 
 
@@ -66,7 +67,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         navigationView.setNavigationItemSelectedListener(this);
         View headerView = navigationView.getHeaderView(0);
         TextView nomeUtente = headerView.findViewById(R.id.nomeUtente);
+        TextView email_tv = headerView.findViewById(R.id.email);
+
+        System.out.println(email);
+
         nomeUtente.setText(username);
+        email_tv.setText(email);
         View navHeaderAnonView = headerView.findViewById(R.id.nav_header_layout);
 
         navHeaderAnonView.setOnClickListener(new View.OnClickListener() {
@@ -77,6 +83,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 intent.putExtra("NOME", nome);
                 intent.putExtra("COGNOME", cognome);
                 intent.putExtra("USERNAME", username);
+                intent.putExtra("EMAIL", email);
                 startActivity(intent);
 
 
@@ -208,4 +215,5 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public TextView getUserName() {
         return (TextView) findViewById(R.id.nomeUtente);
     }
+    public TextView getEmail() { return (TextView) findViewById(R.id.email); }
 }

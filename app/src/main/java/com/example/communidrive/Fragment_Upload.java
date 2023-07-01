@@ -17,6 +17,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -42,7 +43,8 @@ public class Fragment_Upload extends Fragment implements AdapterView.OnItemSelec
     private Context main_context = getContext();
     private TextInputEditText name_textinputedittext, desc_textinputedittext;
     private AutoCompleteTextView uni_comptextview, dep_comptextview, courses_comptextview, academic_year_comptextview, types_comptextview, lang_comptextview, prof_comptextview;
-    private TextView filePath_TextView, username_TextView;
+    private TextView filePath_TextView, username_TextView, email_TextView;
+    private CheckBox accept_checkbox;
     int lang_flag = 0;
     private static final int PICK_PDF_FILE = 2;
     ArrayList<Note> noteList;
@@ -57,8 +59,10 @@ public class Fragment_Upload extends Fragment implements AdapterView.OnItemSelec
         file_submitButton = (Button) rootView.findViewById(R.id.submit_button);
         name_textinputedittext = (TextInputEditText) rootView.findViewById(R.id.note_name);
         desc_textinputedittext = (TextInputEditText) rootView.findViewById(R.id.note_desc);
+        accept_checkbox = (CheckBox) rootView.findViewById(R.id.accept_checkbox);
 
         username_TextView = ((MainActivity) requireActivity()).getUserName();
+        email_TextView = ((MainActivity) requireActivity()).getEmail();
 
         // Sets default random note samples everytime I start the app
         Date date = new Date(); String stringDate = DateFormat.getDateInstance().format(date);
@@ -88,6 +92,7 @@ public class Fragment_Upload extends Fragment implements AdapterView.OnItemSelec
                 String prof = prof_comptextview.getText().toString();
                 String desc = desc_textinputedittext.getText().toString();
                 String path = filePath_TextView.getText().toString();
+                boolean mail = accept_checkbox.isChecked();
 
                 // Controllo se i campi obbligatori sono compilati
                 if (TextUtils.isEmpty(title) || TextUtils.isEmpty(uni)
@@ -96,12 +101,14 @@ public class Fragment_Upload extends Fragment implements AdapterView.OnItemSelec
                         || (TextUtils.equals(path, "Nessun file selezionato"))) {
                     Toast.makeText(main_context, "1 o più campi obbligatori (*) sono vuoti!", Toast.LENGTH_LONG).show();
                 } else {
+
                     String user = username_TextView.getText().toString();
+                    String email = email_TextView.getText().toString();
 
                     if (lang.equals("ITA")) lang_flag = R.drawable.ita;
                     else if (lang.equals("ENG")) lang_flag = R.drawable.eng;
 
-                    noteList.add(new Note(title, R.drawable.ic_launcher_background, desc, user, stringDate, uni, dep, course, aa, type, prof, filePath_TextView.getText().toString(), lang_flag));
+                    noteList.add(new Note(title, R.drawable.ic_launcher_background, desc, user, stringDate, uni, dep, course, aa, type, prof, filePath_TextView.getText().toString(), lang_flag, mail, email));
 
                     // Aggiorno l'holder
                     NoteListHolder.noteArrayList=noteList;

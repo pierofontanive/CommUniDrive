@@ -19,9 +19,11 @@ public class Note {
     private String prof;
     private String file_path;
     private int lang;
+    private boolean email_check;
+    private String email;
 
     // Constructor
-    public Note(String title, int image, String description, String user, String date, String uni, String dep, String course, String aa, String noteType, String prof, String file_path, int lang) {
+    public Note(String title, int image, String description, String user, String date, String uni, String dep, String course, String aa, String noteType, String prof, String file_path, int lang, boolean email_check, String email) {
         this.title = title;
         this.image = image;
         this.description = description;
@@ -35,6 +37,8 @@ public class Note {
         this.prof = prof;
         this.file_path = file_path;
         this.lang = lang;
+        this.email_check = email_check;
+        this.email = email;
     }
 
     // Getter
@@ -51,6 +55,8 @@ public class Note {
     public String getProf() { return prof; }
     public String getFile_path() { return file_path; }
     public int getLang() { return lang; }
+    public boolean getMailCheck() { return email_check; }
+    public String getEmail() { return email; }
 
     // Setter
     public void setTitle(String title) { this.title = title; }
@@ -66,4 +72,6 @@ public class Note {
     public void setProf(String prof) { this.prof = prof; }
     public void setFile_path(String file_path) { this.file_path = file_path; }
     public void setLang(int lang) { this.lang = lang; }
+    public void setEmail_check(boolean email_check) { this.email_check = email_check; }
+    public void setEmail(String email) { this.email = email; }
 }

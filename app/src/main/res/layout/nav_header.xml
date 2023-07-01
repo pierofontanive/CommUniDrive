@@ -9,11 +9,26 @@
     android:theme="@style/ThemeOverlay.AppCompat.Dark"
     android:orientation="vertical">
 
-    <ImageView
-        android:contentDescription="@string/nav_header_logo"
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@mipmap/ic_launcher_round" />
+        android:orientation="horizontal">
+
+        <ImageView
+            android:contentDescription="@string/nav_header_logo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/ic_launcher_round" />
+
+        <TextView
+            android:id="@+id/email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#00000000"/>
+
+    </LinearLayout>
+
+
 
     <TextView
         android:id="@+id/nomeUtente"
@@ -27,5 +42,6 @@
         android:layout_height="wrap_content"
         android:textAppearance="@style/TextAppearance.AppCompat.Caption"
         android:text="@string/nav_header_gotoprofile"/>
+
 
 </LinearLayout>

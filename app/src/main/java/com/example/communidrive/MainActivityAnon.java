@@ -142,7 +142,7 @@ public class MainActivityAnon extends AppCompatActivity implements NavigationVie
                     else if (random_lang.equals("ENG")) lang_flag = R.drawable.eng;
 
                     String file_wo_ext = file.substring(0, file.lastIndexOf("."));
-                    noteList.add(new Note(file_wo_ext, R.drawable.ic_launcher_background, random_desc, random_author, "" + stringDate, random_uni, random_dep, "LdPSMeT", random_aa, random_type, random_prof, file, lang_flag));
+                    noteList.add(new Note(file_wo_ext, R.drawable.ic_launcher_background, random_desc, random_author, "" + stringDate, random_uni, random_dep, "LdPSMeT", random_aa, random_type, random_prof, file, lang_flag, false, ""));
                 }
             } catch (IOException e1) { e1.printStackTrace(); }
             NoteListHolder.check=true;

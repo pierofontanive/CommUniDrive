@@ -48,7 +48,7 @@ public class Fragment_History extends Fragment implements AdapterView.OnItemSele
         File[] files = path.listFiles();
         if(files != null && files.length > 0) {
             for (File file : files) {
-                downloadList.add(new Note(file.getName(), R.drawable.ic_launcher_background, null, null, null, null, null, null, null, null, null, file.getPath(), R.drawable.ic_launcher_background));
+                downloadList.add(new Note(file.getName(), R.drawable.ic_launcher_background, null, null, null, null, null, null, null, null, null, file.getPath(), R.drawable.ic_launcher_background, false, ""));
             }
         }
 

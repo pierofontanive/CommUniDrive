@@ -36,7 +36,7 @@ import java.util.List;
 
 public class Note_Activity extends AppCompatActivity {
 
-    private TextView title_tv, user_tv, date_tv, uni_tv, dep_tv, course_tv, aa_tv, type_tv, desc_tv;
+    private TextView title_tv, user_tv, date_tv, uni_tv, dep_tv, course_tv, aa_tv, type_tv, desc_tv, email_tv;
     private Button download_button;
     private ImageView image_iv, lang_flag_iv;
 
@@ -62,6 +62,7 @@ public class Note_Activity extends AppCompatActivity {
         type_tv = (TextView) findViewById(R.id.note_mat_type);
         desc_tv = (TextView) findViewById(R.id.note_description);
         lang_flag_iv = (ImageView) findViewById(R.id.lang_flag);
+        email_tv = (TextView) findViewById(R.id.note_mat_email);
 
         // Ricevo i dati
         Intent intent = getIntent();
@@ -77,6 +78,8 @@ public class Note_Activity extends AppCompatActivity {
         String type = intent.getExtras().getString("Note_Type");
         String file_path = intent.getExtras().getString("FilePath");
         Integer flag = intent.getExtras().getInt("Lang");
+        boolean mail = intent.getExtras().getBoolean("EmailCheck");
+        String email = intent.getExtras().getString("Email");
 
         // Setto i dati
         image_iv.setImageResource(image);
@@ -90,6 +93,13 @@ public class Note_Activity extends AppCompatActivity {
         aa_tv.setText(aa);
         type_tv.setText(type);
         lang_flag_iv.setImageResource(flag);
+
+        if (mail) {
+            email_tv.setText("Puoi contattare l'autore a questo indirizzo: " + email);
+        } else {
+            email_tv.setText("L'utente non ha reso disponibile la sua mail.");
+        }
+
 
         // "Scarico" il file
         download_button = (Button) findViewById(R.id.download_button);

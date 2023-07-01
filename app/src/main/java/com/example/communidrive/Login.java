@@ -114,9 +114,12 @@ public class Login extends AppCompatActivity {
                         System.out.println("Cognome: " + cognomeProfilo);
                         System.out.println("Username: " + email);
 
+                        String email_ = snapshot.child("piero").child("email").getValue(String.class);
+
                         intent.putExtra("NOME", nomeProfilo);
                         intent.putExtra("COGNOME", cognomeProfilo);
                         intent.putExtra("USERNAME", email);
+                        intent.putExtra("EMAIL", email_);
                         startActivity(intent);
                     } else {
                         passwordLogin.setError("Wrong Password. Try again!");

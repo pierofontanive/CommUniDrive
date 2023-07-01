@@ -56,6 +56,8 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.
                 intent.putExtra("Desc", notes.get(position).getDescription());
                 intent.putExtra("FilePath", notes.get(position).getFile_path());
                 intent.putExtra("Lang", notes.get(position).getLang());
+                intent.putExtra("EmailCheck", notes.get(position).getMailCheck());
+                intent.putExtra("Email", notes.get(position).getEmail());
 
                 context.startActivity(intent);
             }
@@ -66,7 +68,7 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.
 
     public static class CustomViewHolder extends RecyclerView.ViewHolder {
 
-        TextView note_title_tv, note_uploaded_date_tv, note_uni_tv, note_dep_tv, note_course_tv, note_aa_tv, note_type_tv, note_desc_tv;
+        TextView note_title_tv, note_uploaded_date_tv, note_uni_tv, note_dep_tv, note_course_tv, note_aa_tv, note_type_tv, note_desc_tv, note_mail_tv;
         ImageView note_image_iv, lang_flag_iv;
         CardView cardView;
 
@@ -83,6 +85,7 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.
             note_type_tv = (TextView) itemview.findViewById(R.id.note_mat_type);
             note_desc_tv = (TextView) itemview.findViewById(R.id.note_description);
             lang_flag_iv = (ImageView) itemview.findViewById(R.id.lang_flag);
+            note_mail_tv = (TextView) itemview.findViewById(R.id.note_mat_email);
         }
     }
 }
