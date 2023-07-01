@@ -38,7 +38,7 @@ public class Note_Activity extends AppCompatActivity {
 
     private TextView title_tv, user_tv, date_tv, uni_tv, dep_tv, course_tv, aa_tv, type_tv, desc_tv;
     private Button download_button;
-    private ImageView image_iv;
+    private ImageView image_iv, lang_flag_iv;
 
     public ArrayList<Note> downloadList;
 
@@ -61,6 +61,7 @@ public class Note_Activity extends AppCompatActivity {
         aa_tv = (TextView) findViewById(R.id.note_aa);
         type_tv = (TextView) findViewById(R.id.note_mat_type);
         desc_tv = (TextView) findViewById(R.id.note_description);
+        lang_flag_iv = (ImageView) findViewById(R.id.lang_flag);
 
         // Ricevo i dati
         Intent intent = getIntent();
@@ -75,6 +76,7 @@ public class Note_Activity extends AppCompatActivity {
         String aa = intent.getExtras().getString("Aa");
         String type = intent.getExtras().getString("Note_Type");
         String file_path = intent.getExtras().getString("FilePath");
+        Integer flag = intent.getExtras().getInt("Lang");
 
         // Setto i dati
         image_iv.setImageResource(image);
@@ -87,6 +89,7 @@ public class Note_Activity extends AppCompatActivity {
         course_tv.setText(course);
         aa_tv.setText(aa);
         type_tv.setText(type);
+        lang_flag_iv.setImageResource(flag);
 
         // "Scarico" il file
         download_button = (Button) findViewById(R.id.download_button);

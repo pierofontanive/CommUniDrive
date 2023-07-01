@@ -18,9 +18,10 @@ public class Note {
     private String noteType;
     private String prof;
     private String file_path;
+    private int lang;
 
     // Constructor
-    public Note(String title, int image, String description, String user, String date, String uni, String dep, String course, String aa, String noteType, String prof, String file_path) {
+    public Note(String title, int image, String description, String user, String date, String uni, String dep, String course, String aa, String noteType, String prof, String file_path, int lang) {
         this.title = title;
         this.image = image;
         this.description = description;
@@ -33,6 +34,7 @@ public class Note {
         this.noteType = noteType;
         this.prof = prof;
         this.file_path = file_path;
+        this.lang = lang;
     }
 
     // Getter
@@ -48,6 +50,7 @@ public class Note {
     public String getNoteType() { return noteType; }
     public String getProf() { return prof; }
     public String getFile_path() { return file_path; }
+    public int getLang() { return lang; }
 
     // Setter
     public void setTitle(String title) { this.title = title; }
@@ -62,4 +65,5 @@ public class Note {
     public void setNoteType(String noteType) { this.noteType = noteType; }
     public void setProf(String prof) { this.prof = prof; }
     public void setFile_path(String file_path) { this.file_path = file_path; }
+    public void setLang(int lang) { this.lang = lang; }
 }

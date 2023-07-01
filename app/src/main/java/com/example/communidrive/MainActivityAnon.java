@@ -37,6 +37,9 @@ public class MainActivityAnon extends AppCompatActivity implements NavigationVie
     public ArrayList<Note> noteList;
     public ArrayList<Note> downloadList;
 
+    String[] uni, author, dep, prof, type, description, aa, desc;
+    int lang_flag = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -107,14 +110,14 @@ public class MainActivityAnon extends AppCompatActivity implements NavigationVie
         downloadList = new ArrayList<>();
 
         // General, can be random and needs no checks (and we will remove the first item, cause its the "N/D" one)
-        String[] old_uni = getResources().getStringArray(R.array.universities_array);           String[] uni = new String[old_uni.length - 1];                  System.arraycopy(old_uni, 1, uni, 0, uni.length);
-        String[] old_author = getResources().getStringArray(R.array.authors_array);             String[] author = new String[old_author.length - 1];            System.arraycopy(old_author, 1, author, 0, author.length);
-        String[] old_dep = getResources().getStringArray(R.array.departments_array);            String[] dep = new String[old_dep.length - 1];                  System.arraycopy(old_dep, 1, dep, 0, dep.length);
-        String[] old_prof = getResources().getStringArray(R.array.prof_array);                  String[] prof = new String[old_prof.length - 1];                System.arraycopy(old_prof, 1, prof, 0, prof.length);
-        String[] old_type = getResources().getStringArray(R.array.types_array);                 String[] type = new String[old_type.length - 1];                System.arraycopy(old_type, 1, type, 0, type.length);
-        String[] old_description = getResources().getStringArray(R.array.description_array);    String[] description = new String[old_description.length - 1];  System.arraycopy(old_description, 1, description, 0, description.length);
-        String[] old_aa = getResources().getStringArray(R.array.aa_array);                      String[] aa = new String[old_aa.length - 1];                    System.arraycopy(old_aa, 1, aa, 0, aa.length);
-        String random_uni, random_author, random_dep, random_prof, random_type, random_desc, random_aa;
+        String[] old_uni = getResources().getStringArray(R.array.universities_array);           uni = new String[old_uni.length - 1];                  System.arraycopy(old_uni, 1, uni, 0, uni.length);
+        String[] old_author = getResources().getStringArray(R.array.authors_array);             author = new String[old_author.length - 1];            System.arraycopy(old_author, 1, author, 0, author.length);
+        String[] old_dep = getResources().getStringArray(R.array.departments_array);            dep = new String[old_dep.length - 1];                  System.arraycopy(old_dep, 1, dep, 0, dep.length);
+        String[] old_prof = getResources().getStringArray(R.array.prof_array);                  prof = new String[old_prof.length - 1];                System.arraycopy(old_prof, 1, prof, 0, prof.length);
+        String[] old_type = getResources().getStringArray(R.array.types_array);                 type = new String[old_type.length - 1];                System.arraycopy(old_type, 1, type, 0, type.length);
+        String[] description = getResources().getStringArray(R.array.description_array);
+        String[] old_aa = getResources().getStringArray(R.array.aa_array);                      aa = new String[old_aa.length - 1];                    System.arraycopy(old_aa, 1, aa, 0, aa.length);
+        String random_uni, random_author, random_dep, random_prof, random_type, random_desc, random_aa, random_lang;
 
         // Specific, needs to be checked before inserting it
         String[] course = getResources().getStringArray(R.array.courses_array);
@@ -133,9 +136,13 @@ public class MainActivityAnon extends AppCompatActivity implements NavigationVie
                     random_type = type[new Random().nextInt(type.length)];
                     random_desc = description[new Random().nextInt(description.length)];
                     random_aa = aa[new Random().nextInt(aa.length)];
+                    random_lang = languages[new Random().nextInt(languages.length)];
+
+                    if (random_lang.equals("ITA")) lang_flag = R.drawable.ita;
+                    else if (random_lang.equals("ENG")) lang_flag = R.drawable.eng;
 
                     String file_wo_ext = file.substring(0, file.lastIndexOf("."));
-                    noteList.add(new Note(file_wo_ext, R.drawable.ic_launcher_background, random_desc, random_author, "" + stringDate, random_uni, random_dep, "LdPSMeT", random_aa, random_type, random_prof, file));
+                    noteList.add(new Note(file_wo_ext, R.drawable.ic_launcher_background, random_desc, random_author, "" + stringDate, random_uni, random_dep, "LdPSMeT", random_aa, random_type, random_prof, file, lang_flag));
                 }
             } catch (IOException e1) { e1.printStackTrace(); }
             NoteListHolder.check=true;
@@ -193,4 +200,9 @@ public class MainActivityAnon extends AppCompatActivity implements NavigationVie
         return noteList;
     }
     public ArrayList<Note> getDownloadList() { return downloadList; }
+
+    // Methods to share the arrays of strings for each field
+    public String[] getUniStrings() {
+        return uni;
+    }
 }

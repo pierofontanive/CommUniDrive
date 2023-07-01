@@ -255,6 +255,45 @@
 
         </LinearLayout>
 
+        <!-- Sezione descrizione -->
+        <LinearLayout
+            android:id="@+id/desc_linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@id/type_lang_linearLayout"
+            android:baselineAligned="false">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/desc_layout"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingStart="16dp"
+                android:paddingTop="16dp"
+                android:paddingEnd="16dp"
+                app:counterEnabled="true"
+                app:counterMaxLength="256"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/note_desc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:ems="10"
+                    android:maxLength="256"
+                    android:singleLine="false"
+                    android:hint="@string/descrizione_del_materiale" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </LinearLayout>
+
         <CheckBox
             android:id="@+id/accept_checkbox"
             android:layout_width="wrap_content"
@@ -263,7 +302,7 @@
             android:layout_marginTop="16dp"
             android:text="@string/consento_di_rendere_la_mia_mail_pubblica"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/type_lang_linearLayout"
+            app:layout_constraintTop_toBottomOf="@+id/desc_linearLayout"
             android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"/>
 
         <Button

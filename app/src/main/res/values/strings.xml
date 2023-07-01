@@ -32,15 +32,15 @@
     <string name="seleziona_il_file">Seleziona il file</string>
     <string name="nessun_file_selezionato">Nessun file selezionato</string>
     <string name="consento_di_rendere_la_mia_mail_pubblica">Consento di rendere la mia mail pubblica.</string>
-    <string name="nome_del_materiale">Nome del materiale:</string>
+    <string name="nome_del_materiale">Nome del materiale:*</string>
     <string name="pubblica">PUBBLICA</string>
-    <string name="seleziona_l_universit">Università</string>
-    <string name="seleziona_il_dipartimento">Dipartimento</string>
-    <string name="seleziona_il_corso">Corso</string>
-    <string name="seleziona_l_a_a">A.a.</string>
+    <string name="seleziona_l_universit">Università*</string>
+    <string name="seleziona_il_dipartimento">Dipartimento*</string>
+    <string name="seleziona_il_corso">Corso*</string>
+    <string name="seleziona_l_a_a">A.a.*</string>
     <string name="seleziona_il_professore">Professore</string>
-    <string name="seleziona_la_tipologia">Tipologia</string>
-    <string name="seleziona_la_lingua">Lingua</string>
+    <string name="seleziona_la_tipologia">Tipologia*</string>
+    <string name="seleziona_la_lingua">Lingua*</string>
     <string name="scarica">SCARICA</string>
     <string name="email">email</string>
     <string name="password">password</string>
@@ -49,4 +49,5 @@
     <string name="cognome">cognome</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="descrizione_del_materiale">Descrizione del materiale*</string>
 </resources>
