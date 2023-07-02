@@ -20,7 +20,7 @@
             android:layout_height="?attr/actionBarSize"
             android:background="@color/test"
             android:elevation="4dp"
-            android:theme="@style/ThemeOverlay.AppCompat.Light"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
             app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
 
         <FrameLayout
@@ -38,12 +38,10 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
 
-
         android:layout_gravity="start"
-        android:background="#FFFFFF"
+        android:theme="@style/ThemeOverlay.AppCompat.Light"
         app:headerLayout="@layout/nav_header_anon"
-        app:menu="@menu/prova"
-        app:itemTextColor="@color/black">
+        app:menu="@menu/prova">
 
 
 
@@ -65,9 +63,9 @@
                 android:id="@+id/accedi_button"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="@string/accedi"
-                android:background="@color/test"
+                android:text="Accedi"
                 android:textColor="#FFFFFF"
+                android:background="@color/test"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/registrati_button"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -79,7 +77,7 @@
                 android:id="@+id/registrati_button"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="@string/registratis"
+                android:text="Registrati"
                 android:background="@color/test"
                 android:textColor="#FFFFFF"
                 app:layout_constraintStart_toEndOf="@+id/accedi_button"

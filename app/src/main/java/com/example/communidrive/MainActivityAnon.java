@@ -43,7 +43,7 @@ public class MainActivityAnon extends AppCompatActivity implements NavigationVie
     public ArrayList<Note> noteList;
     public ArrayList<Note> downloadList;
 
-    String[] uni, author, dep, prof, type, aa, courses;
+    String[] uni, author, dep, prof, type, aa, courses, description;
     int lang_flag = 0;
 
     private Boolean isUserAction = false;
@@ -146,10 +146,10 @@ public class MainActivityAnon extends AppCompatActivity implements NavigationVie
         String[] old_dep = getResources().getStringArray(R.array.departments_array);            dep = new String[old_dep.length - 1];                  System.arraycopy(old_dep, 1, dep, 0, dep.length);
         String[] old_prof = getResources().getStringArray(R.array.prof_array);                  prof = new String[old_prof.length - 1];                System.arraycopy(old_prof, 1, prof, 0, prof.length);
         String[] old_type = getResources().getStringArray(R.array.types_array);                 type = new String[old_type.length - 1];                System.arraycopy(old_type, 1, type, 0, type.length);
-        String[] description = getResources().getStringArray(R.array.description_array);
+        String[] old_description = getResources().getStringArray(R.array.description_array);    description = new String[old_description.length - 1];  System.arraycopy(old_description, 1, description, 0, description.length);
         String[] old_aa = getResources().getStringArray(R.array.aa_array);                      aa = new String[old_aa.length - 1];                    System.arraycopy(old_aa, 1, aa, 0, aa.length);
         String[] old_courses = getResources().getStringArray(R.array.courses_array);            courses = new String[old_courses.length - 1];          System.arraycopy(old_courses, 1, courses, 0, courses.length);
-        String random_uni, random_author, random_dep, random_prof, random_type, random_desc, random_aa, random_lang, random_course;
+        String random_uni, random_author, random_dep, random_prof, random_type, random_desc, random_aa, random_lang, random_course, random_description;
 
         // Specific, needs to be checked before inserting it
 
@@ -166,16 +166,16 @@ public class MainActivityAnon extends AppCompatActivity implements NavigationVie
                     random_dep = dep[new Random().nextInt(dep.length)];
                     random_prof = prof[new Random().nextInt(prof.length)];
                     random_type = type[new Random().nextInt(type.length)];
-                    random_desc = description[new Random().nextInt(description.length)];
                     random_aa = aa[new Random().nextInt(aa.length)];
                     random_lang = languages[new Random().nextInt(languages.length)];
                     random_course = courses[new Random().nextInt(courses.length)];
+                    random_description = description[new Random().nextInt(description.length)];
 
                     if (random_lang.equals("ITA")) lang_flag = R.drawable.ita;
                     else if (random_lang.equals("ENG")) lang_flag = R.drawable.eng;
 
                     String file_wo_ext = file.substring(0, file.lastIndexOf("."));
-                    noteList.add(new Note(file_wo_ext, R.drawable.book, random_desc, random_author, "" + stringDate, random_uni, random_dep, random_course, random_aa, random_type, random_prof, file, lang_flag, false, ""));
+                    noteList.add(new Note(file_wo_ext, R.drawable.book, random_description, random_author, "" + stringDate, random_uni, random_dep, random_course, random_aa, random_type, random_prof, file, lang_flag, false, ""));
                 }
             } catch (IOException e1) { e1.printStackTrace(); }
             NoteListHolder.check=true;
