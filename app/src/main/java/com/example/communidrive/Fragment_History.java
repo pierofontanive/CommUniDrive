@@ -48,7 +48,7 @@ public class Fragment_History extends Fragment implements AdapterView.OnItemSele
         File[] files = path.listFiles();
         if(files != null && files.length > 0) {
             for (File file : files) {
-                downloadList.add(new Note(file.getName(), R.drawable.ic_launcher_background, null, null, null, null, null, null, null, null, null, file.getPath(), R.drawable.ic_launcher_background, false, ""));
+                downloadList.add(new Note(file.getName(), R.drawable.book, null, null, null, null, null, null, null, null, null, file.getPath(), R.drawable.ic_launcher_background, false, ""));
             }
         }
 
@@ -57,7 +57,7 @@ public class Fragment_History extends Fragment implements AdapterView.OnItemSele
         RecyclerView recyclerView = (RecyclerView) rootView.findViewById(R.id.download_recycleview);
         RecycleViewAdapterPDF recycleViewAdapter = new RecycleViewAdapterPDF(main_context, downloadList);
         recyclerView.setAdapter(recycleViewAdapter);
-        recyclerView.setLayoutManager(new GridLayoutManager(main_context, 3));
+        recyclerView.setLayoutManager(new GridLayoutManager(main_context, 1));
 
         return rootView;
     }

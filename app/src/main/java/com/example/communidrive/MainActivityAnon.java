@@ -7,11 +7,16 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.res.AssetManager;
+import android.content.res.Configuration;
+import android.content.res.Resources;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -25,6 +30,7 @@ import java.io.IOException;
 import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Locale;
 import java.util.Random;
 
 public class MainActivityAnon extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, AdapterView.OnItemSelectedListener{
@@ -37,8 +43,10 @@ public class MainActivityAnon extends AppCompatActivity implements NavigationVie
     public ArrayList<Note> noteList;
     public ArrayList<Note> downloadList;
 
-    String[] uni, author, dep, prof, type, description, aa, desc;
+    String[] uni, author, dep, prof, type, aa, courses;
     int lang_flag = 0;
+
+    private Boolean isUserAction = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,6 +87,29 @@ public class MainActivityAnon extends AppCompatActivity implements NavigationVie
         LanguageAdapter languageAdapter = new LanguageAdapter(getApplicationContext(), flags, languages);
         spinner.setAdapter(languageAdapter);
 
+        // Check which language is selected
+        spinner.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                if (motionEvent.getAction() == MotionEvent.ACTION_DOWN) {
+                    isUserAction = true; // User DID touched the spinner!
+                }
+
+                return false;
+            }
+        });
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                    if (isUserAction) {
+                        if (spinner.getSelectedItemPosition()==0) changeAppLanguage("it"); else changeAppLanguage("en");
+                    }
+                }
+            }
+            @Override public void onNothingSelected(AdapterView<?> adapterView) {}
+        });
+
+
         // ActionBar toggle
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
@@ -117,10 +148,11 @@ public class MainActivityAnon extends AppCompatActivity implements NavigationVie
         String[] old_type = getResources().getStringArray(R.array.types_array);                 type = new String[old_type.length - 1];                System.arraycopy(old_type, 1, type, 0, type.length);
         String[] description = getResources().getStringArray(R.array.description_array);
         String[] old_aa = getResources().getStringArray(R.array.aa_array);                      aa = new String[old_aa.length - 1];                    System.arraycopy(old_aa, 1, aa, 0, aa.length);
-        String random_uni, random_author, random_dep, random_prof, random_type, random_desc, random_aa, random_lang;
+        String[] old_courses = getResources().getStringArray(R.array.courses_array);            courses = new String[old_courses.length - 1];          System.arraycopy(old_courses, 1, courses, 0, courses.length);
+        String random_uni, random_author, random_dep, random_prof, random_type, random_desc, random_aa, random_lang, random_course;
 
         // Specific, needs to be checked before inserting it
-        String[] course = getResources().getStringArray(R.array.courses_array);
+
 
         // Check for files to add to notelist
         if (NoteListHolder.check==false) {
@@ -137,12 +169,13 @@ public class MainActivityAnon extends AppCompatActivity implements NavigationVie
                     random_desc = description[new Random().nextInt(description.length)];
                     random_aa = aa[new Random().nextInt(aa.length)];
                     random_lang = languages[new Random().nextInt(languages.length)];
+                    random_course = courses[new Random().nextInt(courses.length)];
 
                     if (random_lang.equals("ITA")) lang_flag = R.drawable.ita;
                     else if (random_lang.equals("ENG")) lang_flag = R.drawable.eng;
 
                     String file_wo_ext = file.substring(0, file.lastIndexOf("."));
-                    noteList.add(new Note(file_wo_ext, R.drawable.ic_launcher_background, random_desc, random_author, "" + stringDate, random_uni, random_dep, "LdPSMeT", random_aa, random_type, random_prof, file, lang_flag, false, ""));
+                    noteList.add(new Note(file_wo_ext, R.drawable.book, random_desc, random_author, "" + stringDate, random_uni, random_dep, random_course, random_aa, random_type, random_prof, file, lang_flag, false, ""));
                 }
             } catch (IOException e1) { e1.printStackTrace(); }
             NoteListHolder.check=true;
@@ -168,7 +201,7 @@ public class MainActivityAnon extends AppCompatActivity implements NavigationVie
     @Override public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
             case R.id.nav_home: getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new Fragment_Home()).commit(); break;
-            case R.id.nav_upload: getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new Fragment_Upload()).commit(); break;
+            case R.id.nav_upload: Toast.makeText(this, "Pagina non ancora implementata!", Toast.LENGTH_LONG).show(); break;
             case R.id.nav_history:
                 File path = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS) + "/CommUniDrive/");
                 File[] files = path.listFiles();
@@ -204,5 +237,20 @@ public class MainActivityAnon extends AppCompatActivity implements NavigationVie
     // Methods to share the arrays of strings for each field
     public String[] getUniStrings() {
         return uni;
+    }
+
+    // Function to change the app language
+    public void changeAppLanguage(String languageCode) {
+        // Set the desired language code
+        Locale newLocale = new Locale(languageCode);
+        // Get the current resources and configuration
+        Resources resources = getResources();
+        Configuration configuration = resources.getConfiguration();
+        // Set the new locale
+        configuration.setLocale(newLocale);
+        // Update the resources and configuration
+        resources.updateConfiguration(configuration, resources.getDisplayMetrics());
+        // Restart the activity to apply the language change
+        recreate();
     }
 }

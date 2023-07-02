@@ -108,7 +108,7 @@ public class Fragment_Upload extends Fragment implements AdapterView.OnItemSelec
                     if (lang.equals("ITA")) lang_flag = R.drawable.ita;
                     else if (lang.equals("ENG")) lang_flag = R.drawable.eng;
 
-                    noteList.add(new Note(title, R.drawable.ic_launcher_background, desc, user, stringDate, uni, dep, course, aa, type, prof, filePath_TextView.getText().toString(), lang_flag, mail, email));
+                    noteList.add(new Note(title, R.drawable.book, desc, user, stringDate, uni, dep, course, aa, type, prof, filePath_TextView.getText().toString(), lang_flag, mail, email));
 
                     // Aggiorno l'holder
                     NoteListHolder.noteArrayList=noteList;
@@ -144,7 +144,6 @@ public class Fragment_Upload extends Fragment implements AdapterView.OnItemSelec
         ArrayAdapter<String> types_comptextview_adapter = new ArrayAdapter<>(main_context, R.layout.dropdown_list_item, type);
         ArrayAdapter<String> lang_comptextview_adapter = new ArrayAdapter<>(main_context, R.layout.dropdown_list_item, lang);
         ArrayAdapter<String> prof_comptextview_adapter = new ArrayAdapter<>(main_context, R.layout.dropdown_list_item, prof);
-        // Descrizione MISS
 
         uni_comptextview.setAdapter(uni_comptextview_adapter);
         dep_comptextview.setAdapter(dep_comptextview_adapter);

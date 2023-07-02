@@ -33,6 +33,7 @@ import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 public class Note_Activity extends AppCompatActivity {
 
@@ -94,12 +95,15 @@ public class Note_Activity extends AppCompatActivity {
         type_tv.setText(type);
         lang_flag_iv.setImageResource(flag);
 
-        if (mail) {
-            email_tv.setText("Puoi contattare l'autore a questo indirizzo: " + email);
-        } else {
-            email_tv.setText("L'utente non ha reso disponibile la sua mail.");
-        }
+        String current_locale = getResources().getConfiguration().locale.toString();
 
+        if (current_locale.equals("it_IT") || current_locale.equals("it")) {
+            if (mail) email_tv.setText("Puoi contattare l'autore a questo indirizzo: " + email);
+            else email_tv.setText("L'utente non ha reso disponibile la sua mail.");
+        } else if (current_locale.equals("en")) {
+            if (mail) email_tv.setText("The user has not made their email available.");
+            else email_tv.setText("The user has not made their email available.");
+        }
 
         // "Scarico" il file
         download_button = (Button) findViewById(R.id.download_button);

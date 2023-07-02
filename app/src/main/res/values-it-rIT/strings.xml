@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name" translatable="false">CommUniDrive</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="nav_header_logo">Immagine del profilo dell\'utente</string>
+    <string name="nav_header_username">Nome Utente</string>
+    <string name="nav_header_gotoprofile">Vai al profilo</string>
+
+    <string name="nav_header_anon_logo">Immagine del profilo dell\'utente anonimo</string>
+    <string name="nav_header_anon_username">Utente Anonimo</string>
+    <string name="nav_header_anon_gotoprofile">Accedi per visualizzare il profilo</string>
+
+    <string name="drawer_logout">ESCI</string>
+    <string name="home">Home</string>
+    <string name="carica_appunti">Carica Appunti</string>
+    <string name="cronologia">Cronologia</string>
+    <string name="lingua">Lingua</string>
+    <string name="effettua_ricerca">Effettua ricerca</string>
+    <string name="filtri">FILTRI</string>
+    <string name="risultati_trovati">Risultati trovati</string>
+    <string name="filtro">Filtro</string>
+    <string name="universita">Università: </string>
+    <string name="dipartimento">Dipartimento: </string>
+    <string name="a_a">A.a. :</string>
+    <string name="professore">Professore:</string>
+    <string name="lingua2">Lingua:</string>
+    <string name="applica_filtri_e_cerca">Applica Filtri e Cerca</string>
+    <string name="resetta_i_filtri">Resetta i filtri</string>
+    <string name="corso">Corso:</string>
+    <string name="tipologia">Tipologia:</string>
+    <string name="seleziona_il_file">Seleziona il file</string>
+    <string name="nessun_file_selezionato">Nessun file selezionato</string>
+    <string name="consento_di_rendere_la_mia_mail_pubblica">Consento di rendere la mia mail pubblica.</string>
+    <string name="nome_del_materiale">Nome del materiale:*</string>
+    <string name="pubblica">PUBBLICA</string>
+    <string name="seleziona_l_universit">Università*</string>
+    <string name="seleziona_il_dipartimento">Dipartimento*</string>
+    <string name="seleziona_il_corso">Corso*</string>
+    <string name="seleziona_l_a_a">A.a.*</string>
+    <string name="seleziona_il_professore">Professore</string>
+    <string name="seleziona_la_tipologia">Tipologia*</string>
+    <string name="seleziona_la_lingua">Lingua*</string>
+    <string name="scarica">SCARICA</string>
+    <string name="email">email</string>
+    <string name="password">password</string>
+    <string name="username">username</string>
+    <string name="nome">nome</string>
+    <string name="cognome">cognome</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="descrizione_del_materiale">Descrizione del materiale*</string>
+    <string name="caricato_da">Caricato da </string>
+    <string name="in_data"> in data </string>
+    <string name="universit">Università: </string>
+    <string name="dipartimentos">Corso di laurea: </string>
+    <string name="corsos">Corso: </string>
+    <string name="anno_accademico">Anno accademico: </string>
+    <string name="tipologia_materiale">Tipologia Materiale: </string>
+    <string name="descrizione">Descrizione: </string>
+    <string name="nome_utente">Nome Utente</string>
+    <string name="passwords">Password</string>
+    <string name="continua_in_modalit_anonima">Continua in modalità anonima!</string>
+    <string name="recupera_password">Recupera password!</string>
+    <string name="login">Login</string>
+    <string name="oppure_registrati">Oppure registrati</string>
+    <string name="registrati">Registrati</string>
+    <string name="logins">Login</string>
+    <string name="accedi">Accedi</string>
+    <string name="registratis">Registrati</string>
+    <string name="profilo">Profilo</string>
+    <string name="aggiungi_dettagli">Aggiungi dettagli</string>
+    <string name="modifica_password">Modifica Password</string>
+    <string name="register">Register</string>
+    <string name="already_registered">Already registered?</string>
+    <string name="login_now">Login now!</string>
+    <string name="cronologia_download">Cronologia download</string>
+    <string name="supporto">Supporto</string>
+    <string name="carica">Carica</string>
+</resources>

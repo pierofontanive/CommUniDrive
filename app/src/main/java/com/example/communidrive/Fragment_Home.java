@@ -22,6 +22,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -36,7 +37,7 @@ import java.util.Objects;
 
 public class Fragment_Home extends Fragment implements AdapterView.OnItemSelectedListener {
 
-    private Button filterButton, applyfilterButton, resetfilterButton;
+    private Button filterButton, applyfilterButton, resetfilterButton, uploadButton;
     private Context main_context = getContext();
     private Spinner uni_spinner, dep_spinner, courses_spinner, academic_year_spinner, types_spinner, lang_spinner, prof_spinner;
     private AutoCompleteTextView uni_comptextview, dep_comptextview, courses_comptextview, academic_year_comptextview, types_comptextview, lang_comptextview, prof_comptextview;
@@ -51,6 +52,7 @@ public class Fragment_Home extends Fragment implements AdapterView.OnItemSelecte
 
         View rootView = inflater.inflate(R.layout.fragment_home, container, false);
         filterButton = (Button) rootView.findViewById(R.id.filter_button);
+        uploadButton = (Button) rootView.findViewById(R.id.upload_button);
 
         //Gestione del SearchView
         SearchView searchView = rootView.findViewById(R.id.searchView);
@@ -156,6 +158,23 @@ public class Fragment_Home extends Fragment implements AdapterView.OnItemSelecte
                     }
                 });
 
+            }
+        });
+
+        // Gestione del uploadbutton
+        uploadButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                // Switch to fragment upload
+                Activity activity = getActivity();
+                FragmentManager fragmentManager = getFragmentManager();
+                if (activity != null && fragmentManager != null) {
+                    String activityName = activity.getClass().getSimpleName() + "";
+                    if (activityName.equals("MainActivityAnon")) {
+                        Toast.makeText(main_context, "Non puoi caricare appunti da utente anonimo!\nAccedi per effettuare l'upload!", Toast.LENGTH_LONG).show();
+                    } else fragmentManager.beginTransaction().replace(R.id.fragment_container, new Fragment_Upload()).commit();
+                }
             }
         });
 

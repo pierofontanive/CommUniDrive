@@ -104,7 +104,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
-            android:text="Register"
+            android:text="@string/register"
             android:layout_marginTop="50dp"/>
 
         <LinearLayout
@@ -117,14 +117,14 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Already registered?"/>
+                android:text="@string/already_registered"/>
 
             <TextView
                 android:layout_marginStart="10dp"
                 android:id="@+id/loginNowBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Login now!"
+                android:text="@string/login_now"
                 android:textColor="#00BBFF"
                 android:textStyle="bold" />
 

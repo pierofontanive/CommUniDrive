@@ -10,9 +10,13 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.res.AssetManager;
+import android.content.res.Configuration;
+import android.content.res.Resources;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -29,6 +33,7 @@ import java.io.IOException;
 import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Locale;
 import java.util.Random;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, AdapterView.OnItemSelectedListener {
@@ -39,6 +44,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private Button logout;
     public ArrayList<Note> noteList = NoteListHolder.noteArrayList;
     public ArrayList<Note> downloadList;
+
+    private Boolean isUserAction = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -103,6 +110,28 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         spinner.setOnItemSelectedListener(this);
         LanguageAdapter languageAdapter = new LanguageAdapter(getApplicationContext(), flags, languages);
         spinner.setAdapter(languageAdapter);
+
+        // Check which language is selected
+        spinner.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                if (motionEvent.getAction() == MotionEvent.ACTION_DOWN) {
+                    isUserAction = true; // User DID touched the spinner!
+                }
+
+                return false;
+            }
+        });
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                    if (isUserAction) {
+                        if (spinner.getSelectedItemPosition()==0) changeAppLanguage("it"); else changeAppLanguage("en");
+                    }
+                }
+            }
+            @Override public void onNothingSelected(AdapterView<?> adapterView) {}
+        });
 
         // ActionBar toggle
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -216,4 +245,19 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         return (TextView) findViewById(R.id.nomeUtente);
     }
     public TextView getEmail() { return (TextView) findViewById(R.id.email); }
+
+    // Function to change the app language
+    public void changeAppLanguage(String languageCode) {
+        // Set the desired language code
+        Locale newLocale = new Locale(languageCode);
+        // Get the current resources and configuration
+        Resources resources = getResources();
+        Configuration configuration = resources.getConfiguration();
+        // Set the new locale
+        configuration.setLocale(newLocale);
+        // Update the resources and configuration
+        resources.updateConfiguration(configuration, resources.getDisplayMetrics());
+        // Restart the activity to apply the language change
+        recreate();
+    }
 }

@@ -15,8 +15,7 @@
         <ImageView
             android:id="@+id/note_image"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/ic_launcher_background"
+            android:layout_height="250dp"
             app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -35,8 +34,9 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="Titolo"
-                android:textSize="32sp"
+                android:textSize="42sp"
                 android:textStyle="bold"
+                android:fontFamily="sans-serif-black"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -45,8 +45,8 @@
             <!-- Bandiera -->
             <ImageView
                 android:id="@+id/lang_flag"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:layout_gravity="center"
                 android:layout_marginEnd="8dp"
                 android:padding="5dp"
@@ -60,6 +60,7 @@
             android:id="@+id/uploaded_by_date"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:paddingTop="10dp"
             android:orientation="horizontal"
             app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
 
@@ -67,7 +68,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 tools:layout_editor_absoluteX="8dp"
-                android:text="Caricato da "/>
+                android:text="@string/caricato_da"/>
 
             <!-- Utente -->
             <TextView
@@ -81,7 +82,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 tools:layout_editor_absoluteX="8dp"
-                android:text=" in data "/>
+                android:text="@string/in_data"/>
 
             <!-- Data -->
             <TextView
@@ -102,7 +103,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Università: "/>
+                android:text="@string/universit"/>
 
             <!-- Università -->
             <TextView
@@ -123,7 +124,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Dipartimento: "/>
+                android:text="@string/dipartimentos"/>
 
             <!-- Corso -->
             <TextView
@@ -144,7 +145,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Corso: "/>
+                android:text="@string/corsos"/>
 
             <!-- Materia -->
             <TextView
@@ -165,7 +166,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Tipologia Materiale: "/>
+                android:text="@string/tipologia_materiale"/>
 
             <!-- Tipologia Materiale -->
             <TextView
@@ -186,7 +187,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Anno accademico: "/>
+                android:text="@string/anno_accademico"/>
 
             <!-- Anno accademico -->
             <TextView
@@ -203,20 +204,25 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            app:layout_constraintTop_toBottomOf="@+id/mat_type">
+            app:layout_constraintTop_toBottomOf="@+id/mat_type"
+            android:paddingTop="30dp">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Descrizione: "/>
+                android:text="@string/descrizione"
+                android:textSize="20dp"/>
 
             <!-- Descrizione -->
             <TextView
                 android:id="@+id/note_description"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="300dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="8dp"
                 android:textStyle="bold"
-                android:text="descrizione"/>
+                android:text="descrizione"
+                android:background="@drawable/roundimage"/>
 
         </LinearLayout>
 
@@ -257,8 +263,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             android:text="@string/scarica"
-            app:layout_constraintTop_toBottomOf="@+id/view1"
-            android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar"/>
+            app:layout_constraintTop_toBottomOf="@+id/view1"/>
 
         <View
             android:id="@+id/view2"
