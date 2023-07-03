@@ -27,7 +27,7 @@ import java.util.Objects;
 public class Login extends AppCompatActivity {
 
     private DatabaseReference mDatabase;
-    EditText emailLogin, passwordLogin;
+    EditText userNameLogin, passwordLogin;
     Button loginBtn, registerBtn;
     TextView anonTextView;
 
@@ -36,7 +36,7 @@ public class Login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        emailLogin = findViewById(R.id.emailLogin);
+        userNameLogin = findViewById(R.id.usernameLogin);
         passwordLogin = findViewById(R.id.passwordLogin);
         loginBtn = findViewById(R.id.loginBtn);
         registerBtn = findViewById(R.id.register_button);
@@ -50,7 +50,7 @@ public class Login extends AppCompatActivity {
         loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(!validateUser(emailLogin) | !validateUser(passwordLogin)) {
+                if(!validateUser(userNameLogin) | !validateUser(passwordLogin)) {
                     //almeno un campo risulta vuoto
                 } else {
                     checkUser();
@@ -88,11 +88,11 @@ public class Login extends AppCompatActivity {
     }
 
     public void checkUser(){
-        String email = emailLogin.getText().toString().trim();
+        String username = userNameLogin.getText().toString().trim();
         String password = passwordLogin.getText().toString().trim();
 
         mDatabase = FirebaseDatabase.getInstance("https://communidrive-6a61e-default-rtdb.europe-west1.firebasedatabase.app").getReference("Users");
-        Query query = mDatabase.orderByChild("userName").equalTo(email);
+        Query query = mDatabase.orderByChild("userName").equalTo(username);
         query.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -100,26 +100,23 @@ public class Login extends AppCompatActivity {
                 System.out.println("OK FIN QUI");
                 System.out.println("SNAPSHOT = " + snapshot);
                 if(snapshot.exists()){
-                    emailLogin.setError(null);
-                    String passwordDB = snapshot.child(email).child("password").getValue(String.class);
+                    userNameLogin.setError(null);
+                    String passwordDB = snapshot.child(username).child("password").getValue(String.class);
                     System.out.println("PASSWORD = " + passwordDB);
 
                     if(Objects.equals(passwordDB, password)){
-                        emailLogin.setError(null);
+                        userNameLogin.setError(null);
                         //mi salvo il nome, il cognome e username dell'utente
-                        String nomeProfilo = snapshot.child(email).child("nome").getValue(String.class);
-                        String cognomeProfilo = snapshot.child(email).child("cognome").getValue(String.class);
+                        String nomeProfilo = snapshot.child(username).child("nome").getValue(String.class);
+                        String cognomeProfilo = snapshot.child(username).child("cognome").getValue(String.class);
                         Intent intent = new Intent(Login.this, MainActivity.class);
                         System.out.println("Nome: " + nomeProfilo);
                         System.out.println("Cognome: " + cognomeProfilo);
-                        System.out.println("Username: " + email);
-
-                        String email_ = snapshot.child("piero").child("email").getValue(String.class);
+                        System.out.println("Username: " + username);
 
                         intent.putExtra("NOME", nomeProfilo);
                         intent.putExtra("COGNOME", cognomeProfilo);
-                        intent.putExtra("USERNAME", email);
-                        intent.putExtra("EMAIL", email_);
+                        intent.putExtra("USERNAME", username);
                         startActivity(intent);
                     } else {
                         passwordLogin.setError("Wrong Password. Try again!");
@@ -128,8 +125,8 @@ public class Login extends AppCompatActivity {
 
 
                 } else {
-                    emailLogin.setError("User does not exist.");
-                    emailLogin.requestFocus();
+                    userNameLogin.setError("User does not exist.");
+                    userNameLogin.requestFocus();
                 }
 
 
