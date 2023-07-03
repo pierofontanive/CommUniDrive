@@ -100,8 +100,8 @@ public class Note_Activity extends AppCompatActivity {
         if (current_locale.equals("it_IT") || current_locale.equals("it")) {
             if (mail) email_tv.setText("Puoi contattare l'autore a questo indirizzo: " + email);
             else email_tv.setText("L'utente non ha reso disponibile la sua mail.");
-        } else if (current_locale.equals("en")) {
-            if (mail) email_tv.setText("The user has not made their email available.");
+        } else if (current_locale.equals("en") || current_locale.equals("en_US")) {
+            if (mail) email_tv.setText("You can contact the author at this address: " + email);
             else email_tv.setText("The user has not made their email available.");
         }
 

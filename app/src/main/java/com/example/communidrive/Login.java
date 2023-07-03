@@ -109,7 +109,9 @@ public class Login extends AppCompatActivity {
                         //mi salvo il nome, il cognome e username dell'utente
                         String nomeProfilo = snapshot.child(username).child("nome").getValue(String.class);
                         String cognomeProfilo = snapshot.child(username).child("cognome").getValue(String.class);
+                        String email = snapshot.child(username).child("email").getValue(String.class);
                         Intent intent = new Intent(Login.this, MainActivity.class);
+
                         System.out.println("Nome: " + nomeProfilo);
                         System.out.println("Cognome: " + cognomeProfilo);
                         System.out.println("Username: " + username);
@@ -117,6 +119,8 @@ public class Login extends AppCompatActivity {
                         intent.putExtra("NOME", nomeProfilo);
                         intent.putExtra("COGNOME", cognomeProfilo);
                         intent.putExtra("USERNAME", username);
+                        intent.putExtra("EMAIL", email);
+
                         startActivity(intent);
                     } else {
                         passwordLogin.setError("Wrong Password. Try again!");
