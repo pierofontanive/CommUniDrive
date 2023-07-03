@@ -78,4 +78,5 @@
     <string name="cronologia_download">Download History</string>
     <string name="supporto">Support</string>
     <string name="carica">Upload</string>
+    <string name="ricerca">Search</string>
 </resources>

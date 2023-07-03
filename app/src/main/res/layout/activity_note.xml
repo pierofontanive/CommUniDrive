@@ -36,7 +36,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="Titolo"
                 android:textSize="42sp"
                 android:textStyle="bold"
                 android:fontFamily="sans-serif-black"
@@ -78,8 +77,7 @@
                 android:id="@+id/note_uploaded_by"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textStyle="bold"
-                android:text="utente"/>
+                android:textStyle="bold"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -92,8 +90,7 @@
                 android:id="@+id/note_uploaded_date"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textStyle="bold"
-                android:text="data"/>
+                android:textStyle="bold"/>
 
         </LinearLayout>
 
@@ -113,8 +110,7 @@
                 android:id="@+id/note_uni"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textStyle="bold"
-                android:text="uni"/>
+                android:textStyle="bold"/>
 
         </LinearLayout>
 
@@ -134,8 +130,7 @@
                 android:id="@+id/note_dep"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textStyle="bold"
-                android:text="dipartimento"/>
+                android:textStyle="bold"/>
 
         </LinearLayout>
 
@@ -155,8 +150,7 @@
                 android:id="@+id/note_course"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textStyle="bold"
-                android:text="corso"/>
+                android:textStyle="bold"/>
 
         </LinearLayout>
 
@@ -176,8 +170,7 @@
                 android:id="@+id/note_mat_type"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textStyle="bold"
-                android:text="materiale"/>
+                android:textStyle="bold"/>
 
         </LinearLayout>
 
@@ -197,8 +190,7 @@
                 android:id="@+id/note_aa"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textStyle="bold"
-                android:text="aa"/>
+                android:textStyle="bold"/>
 
         </LinearLayout>
 
@@ -224,7 +216,6 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="8dp"
                 android:textStyle="bold"
-                android:text="descrizione"
                 android:background="@drawable/roundimage"/>
 
         </LinearLayout>
@@ -246,8 +237,7 @@
                 android:id="@+id/note_mat_email"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textStyle="bold"
-                android:text="email"/>
+                android:textStyle="bold"/>
 
         </LinearLayout>
 
@@ -265,6 +255,7 @@
             android:layout_marginEnd="16dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
+            android:backgroundTint="@color/test"
             android:text="@string/scarica"
             app:layout_constraintTop_toBottomOf="@+id/view1"/>
 

@@ -302,8 +302,7 @@
             android:layout_marginTop="16dp"
             android:text="@string/consento_di_rendere_la_mia_mail_pubblica"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/desc_linearLayout"
-            android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"/>
+            app:layout_constraintTop_toBottomOf="@+id/desc_linearLayout"/>
 
         <Button
             android:id="@+id/filePicker_Button"
@@ -311,9 +310,9 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
+            android:backgroundTint="@color/test"
             android:text="@string/seleziona_il_file"
             app:layout_constraintStart_toStartOf="parent"
-            android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar"
             app:layout_constraintTop_toBottomOf="@+id/accept_checkbox" />
 
         <TextView
@@ -343,8 +342,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             android:text="@string/pubblica"
-            app:layout_constraintTop_toBottomOf="@+id/view"
-            android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar"/>
+            android:backgroundTint="@color/test"
+            app:layout_constraintTop_toBottomOf="@+id/view"/>
 
         <View
             android:id="@+id/view2"

@@ -98,7 +98,7 @@
             android:drawableLeft="@drawable/baseline_add_15"
             android:textAlignment="textEnd"
             android:text="@string/aggiungi_dettagli"
-            android:background="@color/test"/>
+            android:backgroundTint="@color/test"/>
 
         <Button
             android:layout_width="wrap_content"
@@ -109,7 +109,7 @@
             android:drawableLeft="@drawable/baseline_password_15"
             android:text="@string/modifica_password"
             android:textAlignment="textEnd"
-            android:background="@color/test"/>
+            android:backgroundTint="@color/test"/>
 
     </LinearLayout>
 

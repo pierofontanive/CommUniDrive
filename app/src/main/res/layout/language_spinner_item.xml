@@ -18,7 +18,6 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:padding="10dp"
-        android:text="Demo"
         android:textColor="@color/black"/>
 
 </LinearLayout>
