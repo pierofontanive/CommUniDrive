@@ -201,7 +201,7 @@ public class MainActivityAnon extends AppCompatActivity implements NavigationVie
     @Override public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
             case R.id.nav_home: getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new Fragment_Home()).commit(); break;
-            case R.id.nav_upload: Toast.makeText(this, "Pagina non ancora implementata!", Toast.LENGTH_LONG).show(); break;
+            case R.id.nav_support: Toast.makeText(this, "Pagina non ancora implementata!", Toast.LENGTH_LONG).show(); break;
             case R.id.nav_history:
                 File path = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS) + "/CommUniDrive/");
                 File[] files = path.listFiles();

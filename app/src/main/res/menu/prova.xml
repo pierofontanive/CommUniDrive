@@ -12,7 +12,7 @@
             android:title="@string/cronologia"
             android:textColor = "@color/black"/>
 
-        <item android:id="@+id/nav_upload"
+        <item android:id="@+id/nav_support"
             android:icon="@drawable/baseline_support_agent_24"
             android:title="@string/supporto"
             android:textColor = "@color/black"/>
